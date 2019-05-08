@@ -2,6 +2,7 @@
 
 find . -name "*.net" -exec rm {} \;
 find . -name "*.raw" -exec rm {} \;
+find . -name "*.cir" -exec rm {} \;
 find . -name "*~" -exec rm {} \;
 find . -name "*\.dat" -exec rm {} \;
 find . -name "\#*" -exec rm {} \;
