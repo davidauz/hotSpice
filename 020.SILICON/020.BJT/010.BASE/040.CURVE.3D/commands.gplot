@@ -1,0 +1,15 @@
+set title "Characteristic curve of a transistor"
+set style data lines
+set hidden3d
+set ylabel "Ib"
+set xlabel "Vce"
+set zlabel "Ie"
+set pm3d flush begin ftriangles scansforward at s interpolate 10,1
+
+# gnuplot is intelligent enough to calculate the 
+# appropriate boundaries of the plot without too 
+# much configuration, so it goes as simple as this: 
+
+splot "cooked.dat" using 2:3:4
+
+pause mouse close
