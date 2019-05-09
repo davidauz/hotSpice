@@ -56,7 +56,7 @@ refdes=X3
 T 54000 53600 5 10 1 0 0 0 1
 model-name=latch
 T 54000 53800 5 10 1 0 0 0 1
-file=latch.SUBCKT.mod
+file=../../../../subckts/latch.SUBCKT.cir
 }
 N 53800 53600 53800 53500 4
 N 55300 51500 55300 53100 4

@@ -197,7 +197,7 @@ footprint=0
 T 60000 52300 5 10 1 0 0 0 1
 model-name=nand_gate
 T 60000 52500 5 10 1 0 0 0 1
-file=../nand.3.SUBCKT.mod
+file=../../../../subckts/nand.3.SUBCKT.cir
 }
 C 47800 57000 1 0 0 spice-directive-1.sym
 {

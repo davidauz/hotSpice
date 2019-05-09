@@ -60,13 +60,13 @@ C 52200 47500 1 0 0 set-reset.sym
 {
 T 52400 48900 5 10 1 1 0 0 1
 refdes=X1
-T 52300 46300 5 10 1 0 0 0 1
+T 52300 46300 5 10 0 0 0 0 1
 device=sr_latch
-T 52300 46100 5 10 1 0 0 0 1
-file=../sr.SUBCKT.mod
-T 52300 46500 5 10 1 0 0 0 1
+T 52300 46100 5 10 0 0 0 0 1
+file=../../../../subckts/sr.SUBCKT.cir
+T 52300 46500 5 10 0 0 0 0 1
 model-name=sr_latch
-T 52300 46700 5 10 1 0 0 0 1
+T 52300 46700 5 10 0 0 0 0 1
 model=sr_latch
 }
 N 51400 49900 51700 49900 4
@@ -148,11 +148,12 @@ T 45000 47700 5 10 0 1 0 0 1
 device=directive
 T 45000 47800 5 10 1 1 0 0 1
 refdes=A1
-T 44900 45800 5 10 1 1 0 0 9
+T 44900 45600 5 10 1 1 0 0 10
 value=.control
 tran 1ms 1s
 set color0=rgb:f/f/f
 set color1=rgb:0/0/0
+set curplottitle="Set-Reset with SUBCKT"
 plot vset vreset 6+q 12+notq
 echo "*******************************************************"
 echo "* Exit ngspice by pressing Ctrl+D or by typing 'exit' *"

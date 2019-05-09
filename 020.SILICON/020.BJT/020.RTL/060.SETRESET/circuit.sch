@@ -88,7 +88,7 @@ C 47500 44500 1 270 0 voltage-3.sym
 {
 T 48200 44300 5 8 0 0 270 0 1
 device=VOLTAGE_SOURCE
-T 45700 44900 5 10 1 1 0 0 1
+T 45700 44900 5 10 0 1 0 0 1
 value=pulse (0 5 0.1 0.001 0.001 0.1 0.5) DC 5
 T 47500 44500 5 10 0 0 0 0 1
 comment=initial value, pulsed value, delay time, rise time, fall time, pulse width,period
@@ -136,7 +136,7 @@ T 55700 44300 5 8 0 0 270 0 1
 device=VOLTAGE_SOURCE
 T 55000 44500 5 10 0 0 0 0 1
 comment=initial value, pulsed value, delay time, rise time, fall time, pulse width,period
-T 56200 44200 5 10 1 1 0 0 1
+T 56200 44200 5 10 0 1 0 0 1
 value=pulse (0 5 0.22 0.001 0.001 0.1 0.5) DC 5
 T 55500 44000 5 10 1 1 0 0 1
 refdes=VP2
@@ -188,11 +188,12 @@ T 56500 47600 5 10 0 1 0 0 1
 device=directive
 T 56500 47700 5 10 1 1 0 0 1
 refdes=A1
-T 56400 45700 5 10 1 1 0 0 9
+T 56400 45600 5 10 1 1 0 0 10
 value=.control
 tran 1ms 1s
 set color0=rgb:f/f/f
 set color1=rgb:0/0/0
+set curplottitle="Set-Reset"
 plot vset vreset q1+6 q2+12
 echo "*******************************************************"
 echo "* Exit ngspice by pressing Ctrl+D or by typing 'exit' *"

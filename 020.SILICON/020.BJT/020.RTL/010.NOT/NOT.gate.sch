@@ -90,16 +90,15 @@ netname=Vb
 }
 N 54900 52900 55200 52900 4
 N 56100 52900 56300 52900 4
-T 51900 56500 9 10 1 0 0 0 11
-RTL stands for Resistor and Transistor Logic: building 
-logic gates using discrete components.  
-Even if the real digital world runs on CMOS technology, 
-the old ways are very interesting.
+T 51900 56500 9 10 1 0 0 0 10
+RTL stands for Resistor and Transistor Logic: it is about
+building  logic gates using discrete components.  
+The real digital world runs on CMOS technology, but
+the old ways are still very interesting.
 
 This is the most basic NOT gate.
 
-The plot shows the base current and the 
-output voltage.
+The plot shows the base current and the output voltage.
 When the base current Vb is LOW then the 
 output voltage Vout is HIGH, and vice versa.
 C 57100 58100 1 0 0 spice-directive-1.sym

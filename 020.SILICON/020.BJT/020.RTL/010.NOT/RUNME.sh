@@ -27,7 +27,7 @@ read a
 
 
 gschem not.SUBCKT.sch test-not.sch &
-gnetlist -g spice-sdb -o ../not.SUBCKT.mod not.SUBCKT.sch
+gnetlist -g spice-sdb -o ../../../../subckts/not.SUBCKT.cir not.SUBCKT.sch
 gnetlist -g spice-sdb -o net.net test-not.sch
 ngspice net.net
 

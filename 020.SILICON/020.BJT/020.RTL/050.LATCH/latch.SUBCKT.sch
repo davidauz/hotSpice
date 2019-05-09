@@ -12,9 +12,9 @@ T 54050 50850 5 8 0 0 0 0 1
 device=NOT_GATE
 T 53200 51800 5 10 1 1 0 0 1
 refdes=X1
-T 51500 52000 5 10 1 0 0 0 1
-file=../not.SUBCKT.mod
-T 51600 52200 5 10 1 0 0 0 1
+T 51500 52000 5 10 0 0 0 0 1
+file=../../../../subckts/not.SUBCKT.cir
+T 51500 52200 5 10 0 0 0 0 1
 model-name=not_gate
 }
 C 54900 50700 1 0 0 not.sym
@@ -23,9 +23,9 @@ T 55950 50850 5 8 0 0 0 0 1
 device=NOT_GATE
 T 55600 51500 5 10 1 1 0 0 1
 refdes=X2
-T 55600 51700 5 10 1 0 0 0 1
-file=../not.SUBCKT.mod
-T 55600 51900 5 10 1 0 0 0 1
+T 55600 51700 5 10 0 1 0 0 1
+file=../../../../subckts/not.SUBCKT.cir
+T 55600 51900 5 10 0 0 0 0 1
 model-name=not_gate
 }
 N 54100 51100 54900 51100 4
