@@ -50,8 +50,8 @@ BETA:
 
 T 54700 56100 9 10 1 0 0 0 9
 This is a crude way to obtain the beta of a transistor.
-Actually the circuit does nothing; some current flows
-through it, then the ratio between the Ib and Ic is calculated.  
+Actually the circuit does nothing; some current flows through
+it, then the ratio between the Ib and Ic is calculated.  
 This is only because I couldn't find a way to make ngspice
 spit the @q1[bf] that is supposed to be the beta parameter
 in the model.  
