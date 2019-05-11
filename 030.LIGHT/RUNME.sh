@@ -12,7 +12,8 @@ for i in $(ls | grep ^0); do
 	pwd
 	echo "
 Press Enter to continue with the next folder.
-Press Ctrl+C to stop here."
+Press Ctrl+C to stop here.
+	"
 	read a
 done
 

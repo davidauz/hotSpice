@@ -1,0 +1,432 @@
+v 20130925 2
+C 55600 49900 1 0 0 vcc-1.sym
+N 45100 44200 57900 44200 4
+N 46600 49900 55800 49900 4
+C 55700 49900 1 270 0 led-2.sym
+{
+T 56300 49800 5 10 0 0 270 0 1
+device=LED
+T 55700 49900 5 10 0 0 0 0 1
+model-name=LED
+T 55400 49400 5 10 1 1 0 0 1
+refdes=D5
+}
+N 57900 45400 57900 44200 4
+N 57900 46000 57900 46900 4
+C 59600 45000 1 0 1 spice-vc-switch-1.sym
+{
+T 58000 45700 5 8 0 0 0 6 1
+device=SPICE-VC-switch
+T 59900 46400 5 10 0 1 0 6 1
+model=RON=0.1 ROFF=1e6 VT=0.95 VH=0
+T 58700 46200 5 12 1 1 0 6 1
+refdes=S1
+T 58900 45150 5 8 1 1 0 6 1
+model-name=swmod
+}
+C 60400 46100 1 90 1 voltage-3.sym
+{
+T 60400 46100 5 10 0 0 0 6 1
+value=pulse (0 5 0.1 0.001 0.001 0.1 8) DC 5
+T 60400 46100 5 10 0 0 0 0 1
+comment=initial V, pulsed V, delay time, rise time, fall time, pulse width,period
+T 59900 45800 5 10 1 1 270 2 1
+refdes=V1
+}
+N 60200 46100 59400 46100 4
+{
+T 60200 46100 5 10 1 1 0 6 1
+netname=VP
+}
+N 59400 46100 59400 46000 4
+N 60200 45200 59400 45200 4
+N 59400 45200 59400 45400 4
+C 59900 44500 1 0 1 gnd-1.sym
+{
+T 59600 44300 5 10 0 1 0 6 1
+net=GND:0
+}
+N 59800 44800 59800 45200 4
+C 55700 49000 1 270 0 resistor-2.sym
+{
+T 56050 48600 5 10 0 0 270 0 1
+device=RESISTOR
+T 56000 48300 5 10 1 1 0 0 1
+refdes=RL5
+T 56300 48700 5 10 1 1 180 0 1
+value=2k
+}
+C 56200 47500 1 0 0 capacitor-1.sym
+{
+T 56400 48200 5 10 0 0 0 0 1
+device=CAPACITOR
+T 56400 48400 5 10 0 0 0 0 1
+symversion=0.1
+T 56500 48000 5 10 1 1 0 0 1
+refdes=C5
+T 56500 47300 5 10 1 1 0 0 1
+value=47uf
+}
+C 45000 49100 1 270 0 resistor-2.sym
+{
+T 45350 48700 5 10 0 0 270 0 1
+device=RESISTOR
+T 45300 48500 5 10 1 1 0 0 1
+refdes=R1
+T 45600 48900 5 10 1 1 180 0 1
+value=680
+}
+N 57100 47700 57100 50500 4
+{
+T 57100 47700 5 10 1 1 0 0 1
+netname=c5b
+}
+N 57100 50500 45100 50500 4
+N 45100 50500 45100 49100 4
+N 46000 46300 45100 46300 4
+N 46600 45800 46600 44200 4
+C 46500 49100 1 270 0 resistor-2.sym
+{
+T 46850 48700 5 10 0 0 270 0 1
+device=RESISTOR
+T 46800 48500 5 10 1 1 0 0 1
+refdes=RL1
+T 47000 48900 5 10 1 1 180 0 1
+value=2k
+}
+N 46600 48200 46600 46800 4
+{
+T 46600 46800 5 10 1 1 0 0 1
+netname=Q1c
+}
+C 45200 44800 1 90 0 resistor-2.sym
+{
+T 44850 45200 5 10 0 0 90 0 1
+device=RESISTOR
+T 45500 45300 5 10 1 1 180 0 1
+refdes=R2
+T 45300 44900 5 10 1 1 0 0 1
+value=1500
+}
+N 45100 48200 45100 45700 4
+N 45100 44800 45100 44200 4
+C 46500 49900 1 270 0 led-2.sym
+{
+T 47100 49800 5 10 0 0 270 0 1
+device=LED
+T 46500 49900 5 10 0 0 0 0 1
+model-name=LED
+T 46200 49400 5 10 1 1 0 0 1
+refdes=D1
+}
+N 46600 49100 46600 49000 4
+N 56200 47700 55800 47700 4
+{
+T 56200 47700 5 10 1 1 0 0 1
+netname=c5a
+}
+N 57900 46900 55800 46900 4
+N 55800 46800 55800 48100 4
+{
+T 55500 47100 5 10 1 1 0 0 1
+netname=Q5c
+}
+C 53500 43900 1 0 0 gnd-1.sym
+C 47900 47300 1 270 0 resistor-2.sym
+{
+T 48250 46900 5 10 0 0 270 0 1
+device=RESISTOR
+T 48200 46700 5 10 1 1 0 0 1
+refdes=R3
+T 48500 47100 5 10 1 1 180 0 1
+value=680
+}
+C 46800 47400 1 0 0 capacitor-1.sym
+{
+T 47000 48100 5 10 0 0 0 0 1
+device=CAPACITOR
+T 47000 48300 5 10 0 0 0 0 1
+symversion=0.1
+T 47100 47900 5 10 1 1 0 0 1
+refdes=C1
+T 47100 47200 5 10 1 1 0 0 1
+value=47uf
+}
+C 48100 44800 1 90 0 resistor-2.sym
+{
+T 47750 45200 5 10 0 0 90 0 1
+device=RESISTOR
+T 48400 45300 5 10 1 1 180 0 1
+refdes=R4
+T 48200 44900 5 10 1 1 0 0 1
+value=1500
+}
+C 48900 49000 1 270 0 resistor-2.sym
+{
+T 49250 48600 5 10 0 0 270 0 1
+device=RESISTOR
+T 49200 48400 5 10 1 1 0 0 1
+refdes=RL2
+T 49400 48800 5 10 1 1 180 0 1
+value=2k
+}
+C 48900 49900 1 270 0 led-2.sym
+{
+T 49500 49800 5 10 0 0 270 0 1
+device=LED
+T 48900 49900 5 10 0 0 0 0 1
+model-name=LED
+T 48600 49400 5 10 1 1 0 0 1
+refdes=D2
+}
+N 46800 47600 46600 47600 4
+N 47700 47600 48000 47600 4
+N 48000 47600 48000 47300 4
+N 49000 46800 49000 48100 4
+{
+T 49000 46800 5 10 1 1 0 0 1
+netname=Q2c
+}
+N 48000 46400 48000 45700 4
+N 48400 46300 48000 46300 4
+N 49000 45800 49000 44200 4
+N 48000 44800 48000 44200 4
+C 50100 47300 1 270 0 resistor-2.sym
+{
+T 50450 46900 5 10 0 0 270 0 1
+device=RESISTOR
+T 50400 46700 5 10 1 1 0 0 1
+refdes=R5
+T 50700 47100 5 10 1 1 180 0 1
+value=680
+}
+C 50300 44800 1 90 0 resistor-2.sym
+{
+T 49950 45200 5 10 0 0 90 0 1
+device=RESISTOR
+T 50600 45300 5 10 1 1 180 0 1
+refdes=R6
+T 50400 44900 5 10 1 1 0 0 1
+value=1500
+}
+C 51100 49000 1 270 0 resistor-2.sym
+{
+T 51450 48600 5 10 0 0 270 0 1
+device=RESISTOR
+T 51400 48400 5 10 1 1 0 0 1
+refdes=RL3
+T 51600 48800 5 10 1 1 180 0 1
+value=2k
+}
+C 51100 49900 1 270 0 led-2.sym
+{
+T 51700 49800 5 10 0 0 270 0 1
+device=LED
+T 51100 49900 5 10 0 0 0 0 1
+model-name=LED
+T 50800 49400 5 10 1 1 0 0 1
+refdes=D3
+}
+N 49900 47600 50200 47600 4
+N 50200 47600 50200 47300 4
+N 51200 46800 51200 48100 4
+{
+T 51200 46800 5 10 1 1 0 0 1
+netname=Q3c
+}
+N 50200 46400 50200 45700 4
+N 50600 46300 50200 46300 4
+N 51200 45800 51200 44200 4
+N 50200 44800 50200 44200 4
+C 49000 47400 1 0 0 capacitor-1.sym
+{
+T 49200 48100 5 10 0 0 0 0 1
+device=CAPACITOR
+T 49200 48300 5 10 0 0 0 0 1
+symversion=0.1
+T 49300 47900 5 10 1 1 0 0 1
+refdes=C2
+T 49300 47200 5 10 1 1 0 0 1
+value=47uf
+}
+C 52300 47300 1 270 0 resistor-2.sym
+{
+T 52650 46900 5 10 0 0 270 0 1
+device=RESISTOR
+T 52600 46700 5 10 1 1 0 0 1
+refdes=R7
+T 52900 47100 5 10 1 1 180 0 1
+value=680
+}
+C 52500 44800 1 90 0 resistor-2.sym
+{
+T 52150 45200 5 10 0 0 90 0 1
+device=RESISTOR
+T 52800 45300 5 10 1 1 180 0 1
+refdes=R8
+T 52600 44900 5 10 1 1 0 0 1
+value=1500
+}
+C 53300 49000 1 270 0 resistor-2.sym
+{
+T 53650 48600 5 10 0 0 270 0 1
+device=RESISTOR
+T 53600 48400 5 10 1 1 0 0 1
+refdes=RL4
+T 53800 48800 5 10 1 1 180 0 1
+value=2k
+}
+C 53300 49900 1 270 0 led-2.sym
+{
+T 53900 49800 5 10 0 0 270 0 1
+device=LED
+T 53300 49900 5 10 0 0 0 0 1
+model-name=LED
+T 53000 49400 5 10 1 1 0 0 1
+refdes=D4
+}
+N 52100 47600 52400 47600 4
+N 52400 47600 52400 47300 4
+N 53400 46800 53400 48100 4
+{
+T 53400 46800 5 10 1 1 0 0 1
+netname=Q4c
+}
+N 52400 46400 52400 45700 4
+N 52800 46300 52400 46300 4
+N 53400 45800 53400 44200 4
+N 52400 44800 52400 44200 4
+C 51200 47400 1 0 0 capacitor-1.sym
+{
+T 51400 48100 5 10 0 0 0 0 1
+device=CAPACITOR
+T 51400 48300 5 10 0 0 0 0 1
+symversion=0.1
+T 51500 47900 5 10 1 1 0 0 1
+refdes=C3
+T 51500 47200 5 10 1 1 0 0 1
+value=47uf
+}
+C 54500 47300 1 270 0 resistor-2.sym
+{
+T 54850 46900 5 10 0 0 270 0 1
+device=RESISTOR
+T 54800 46700 5 10 1 1 0 0 1
+refdes=R9
+T 55100 47100 5 10 1 1 180 0 1
+value=680
+}
+C 54700 44800 1 90 0 resistor-2.sym
+{
+T 54350 45200 5 10 0 0 90 0 1
+device=RESISTOR
+T 55000 45300 5 10 1 1 180 0 1
+refdes=RA
+T 54800 44900 5 10 1 1 0 0 1
+value=1500
+}
+N 54300 47600 54600 47600 4
+N 54600 47600 54600 47300 4
+N 54600 46400 54600 45700 4
+N 55200 46300 54600 46300 4
+N 54600 44800 54600 44200 4
+C 53400 47400 1 0 0 capacitor-1.sym
+{
+T 53600 48100 5 10 0 0 0 0 1
+device=CAPACITOR
+T 53600 48300 5 10 0 0 0 0 1
+symversion=0.1
+T 53700 47900 5 10 1 1 0 0 1
+refdes=C4
+T 53700 47200 5 10 1 1 0 0 1
+value=47uf
+}
+C 55200 45800 1 0 0 npn-3.sym
+{
+T 55200 45800 5 10 0 1 0 0 1
+model-name=genericNPN
+T 55200 45800 5 10 0 0 0 0 1
+model=npn
+T 56000 45900 5 10 1 1 0 0 1
+refdes=Q5
+}
+N 55800 45800 55800 44200 4
+C 52800 45800 1 0 0 npn-3.sym
+{
+T 52800 45800 5 10 0 1 0 0 1
+model-name=genericNPN
+T 52800 45800 5 10 0 0 0 0 1
+model=npn
+T 53600 45900 5 10 1 1 0 0 1
+refdes=Q4
+}
+C 50600 45800 1 0 0 npn-3.sym
+{
+T 50600 45800 5 10 0 1 0 0 1
+model-name=genericNPN
+T 50600 45800 5 10 0 0 0 0 1
+model=npn
+T 51400 45900 5 10 1 1 0 0 1
+refdes=Q3
+}
+C 48400 45800 1 0 0 npn-3.sym
+{
+T 48400 45800 5 10 0 1 0 0 1
+model-name=genericNPN
+T 48400 45800 5 10 0 0 0 0 1
+model=npn
+T 49200 45900 5 10 1 1 0 0 1
+refdes=Q2
+}
+C 46000 45800 1 0 0 npn-3.sym
+{
+T 46000 45800 5 10 0 1 0 0 1
+model-name=genericNPN
+T 46000 45800 5 10 0 0 0 0 1
+model=npn
+T 46800 45900 5 10 1 1 0 0 1
+refdes=Q1
+}
+C 59000 48000 1 0 0 vdc-1.sym
+{
+T 59700 48650 5 10 0 1 0 0 1
+refdes=V10V
+T 59700 48850 5 10 0 0 0 0 1
+device=VOLTAGE_SOURCE
+T 59700 49050 5 10 0 0 0 0 1
+footprint=none
+T 59800 48550 5 10 1 1 0 0 1
+value=DC 24V
+}
+C 59100 49300 1 0 0 vcc-1.sym
+N 59300 49300 59300 49200 4
+C 59200 47400 1 0 0 gnd-1.sym
+N 59300 48000 59300 47700 4
+T 48300 51000 9 10 1 0 0 0 10
+VP gives a single pulse that momentarily closes the S1 switch.
+
+As long as S1 is closed D5 lights up and C5 is charging.
+
+When S1 opens C5 discharges through R1 on the base of Q1, 
+that starts conducting and lights D1.
+
+When Q1 is in saturation C1 is charging.
+
+The same is repeated in all the other stages.
+C 54900 52500 1 0 0 spice-directive-1.sym
+{
+T 55000 52800 5 10 0 1 0 0 1
+device=directive
+T 55000 52900 5 10 1 1 0 0 1
+refdes=A1
+T 54900 50900 5 10 1 1 0 0 9
+value=.options savecurrents
+.control
+save all @rl1[i] @rl2[i] @rl3[i] @rl4[i] @rl5[i] @c5[i]
+set color0=rgb:f/f/f
+set color1=rgb:0/0/0
+tran 1ms 3s
+set curplottitle="Lights currents one after another (plus bonus capacitor current)"
+plot @rl1[i] @rl2[i] @rl3[i] @rl4[i] @rl5[i] @c5[i]
+.endc
+}

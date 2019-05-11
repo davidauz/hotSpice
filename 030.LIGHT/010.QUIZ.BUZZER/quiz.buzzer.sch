@@ -24,7 +24,7 @@ device=NOT_GATE
 T 66700 61900 5 10 1 1 0 0 1
 refdes=X7
 T 65900 60600 5 10 0 1 0 0 1
-file=../../../subckts/not.SUBCKT.cir
+file=../../subckts/not.SUBCKT.cir
 T 64400 60700 5 10 0 0 0 0 1
 model-name=not_gate
 }
@@ -35,7 +35,7 @@ C 66000 56700 1 0 0 not.sym
 T 67050 56850 5 8 0 0 0 0 1
 device=NOT_GATE
 T 64500 56500 5 10 0 0 0 0 1
-file=../../../subckts/not.SUBCKT.cir
+file=../../subckts/not.SUBCKT.cir
 T 64400 56300 5 10 0 0 0 0 1
 model-name=not_gate
 T 66700 57500 5 10 1 1 0 0 1
@@ -48,7 +48,7 @@ C 66000 51900 1 0 0 not.sym
 T 67050 52050 5 8 0 0 0 0 1
 device=NOT_GATE
 T 64500 51700 5 10 0 0 0 0 1
-file=../../../subckts/not.SUBCKT.cir
+file=../../subckts/not.SUBCKT.cir
 T 64400 51500 5 10 0 0 0 0 1
 model-name=not_gate
 T 66700 52700 5 10 1 1 0 0 1
@@ -63,7 +63,7 @@ refdes=X1
 T 57100 60300 5 10 0 0 0 0 1
 device=sr_latch
 T 58000 62900 5 10 0 1 0 0 1
-file=../../../subckts/sr.SUBCKT.cir
+file=../../subckts/sr.SUBCKT.cir
 T 58100 63200 5 10 0 1 0 0 1
 model-name=sr_latch
 T 57100 60700 5 10 0 0 0 0 1
@@ -76,7 +76,7 @@ refdes=X2
 T 57100 55900 5 10 0 0 0 0 1
 device=sr_latch
 T 57100 55700 5 10 0 0 0 0 1
-file=../../../subckts/sr.SUBCKT.cir
+file=../../subckts/sr.SUBCKT.cir
 T 57100 56100 5 10 0 0 0 0 1
 model-name=sr_latch
 T 57100 56300 5 10 0 0 0 0 1
@@ -89,7 +89,7 @@ refdes=X3
 T 57100 51100 5 10 0 0 0 0 1
 device=sr_latch
 T 57100 50900 5 10 0 0 0 0 1
-file=../../../subckts/sr.SUBCKT.cir
+file=../../subckts/sr.SUBCKT.cir
 T 57100 51300 5 10 0 0 0 0 1
 model-name=sr_latch
 T 57100 51500 5 10 0 0 0 0 1
@@ -295,7 +295,7 @@ footprint=0
 T 62300 62600 5 10 0 0 0 0 1
 model-name=nand_gate
 T 62300 62800 5 10 0 0 0 0 1
-file=../../../subckts/nand.3.SUBCKT.cir
+file=../../subckts/nand.3.SUBCKT.cir
 }
 C 61900 59800 1 0 0 gnd-1.sym
 {
@@ -313,7 +313,7 @@ refdes=X5
 T 62300 58200 5 10 0 0 0 0 1
 model-name=nand_gate
 T 62300 58400 5 10 0 0 0 0 1
-file=../../../subckts/nand.3.SUBCKT.cir
+file=../../subckts/nand.3.SUBCKT.cir
 }
 C 61900 55400 1 0 0 gnd-1.sym
 {
@@ -331,7 +331,7 @@ refdes=X6
 T 62300 53400 5 10 0 0 0 0 1
 model-name=nand_gate
 T 62300 53600 5 10 0 0 0 0 1
-file=../../../subckts/nand.3.SUBCKT.cir
+file=../../subckts/nand.3.SUBCKT.cir
 }
 C 61900 50600 1 0 0 gnd-1.sym
 {
