@@ -1,9 +1,9 @@
 # hotSpice
 
-This is a collection of gschem schematics made to work with ngspice.
+A collection of gschem/ngspice schematics.
 
 You will need gschem, ngspice and gnuplot.
 
 1) It's Linux only
-2) cd into the project directory
+2) cd into the top directory
 3) launch RUNME.sh
