@@ -402,16 +402,14 @@ C 59100 49300 1 0 0 vcc-1.sym
 N 59300 49300 59300 49200 4
 C 59200 47400 1 0 0 gnd-1.sym
 N 59300 48000 59300 47700 4
-T 48300 51000 9 10 1 0 0 0 10
+T 47800 51300 9 10 1 0 0 0 8
+LED chaser: lights a strip of LEDs one after another.
+
 VP gives a single pulse that momentarily closes the S1 switch.
-
 As long as S1 is closed D5 lights up and C5 is charging.
-
 When S1 opens C5 discharges through R1 on the base of Q1, 
 that starts conducting and lights D1.
-
 When Q1 is in saturation C1 is charging.
-
 The same is repeated in all the other stages.
 C 54900 52500 1 0 0 spice-directive-1.sym
 {
