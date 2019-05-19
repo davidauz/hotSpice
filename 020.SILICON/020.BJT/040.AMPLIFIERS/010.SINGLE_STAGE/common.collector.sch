@@ -1,0 +1,189 @@
+v 20130925 2
+C 55200 52800 1 0 0 spice-include-1.sym
+{
+T 55300 53100 5 10 0 1 0 0 1
+device=include
+T 55300 53200 5 10 1 1 0 0 1
+refdes=A1
+T 55700 52900 5 10 1 1 0 0 1
+file=2N5551.mod
+}
+C 66400 52000 1 0 0 vcc-1.sym
+C 66500 50800 1 0 0 gnd-1.sym
+{
+T 66500 50800 5 10 0 0 0 0 1
+netname=0
+}
+C 66400 52000 1 270 0 voltage-3.sym
+{
+T 67100 51800 5 8 0 1 270 0 1
+device=VOLTAGE_SOURCE
+T 66900 51600 5 10 1 1 0 0 1
+refdes=V1
+T 66900 51400 5 10 1 1 0 0 1
+value=DC 5V
+}
+T 63100 53300 9 10 1 0 0 0 5
+The Common Collector configuration:
+ - high input impedance
+ - low output impedance
+ - low voltage gain
+ - main usage in impedance matching
+C 61600 51000 1 180 1 npn-3.sym
+{
+T 62500 50500 5 10 0 0 180 6 1
+device=NPN_TRANSISTOR
+T 61600 51000 5 10 0 0 180 6 1
+model-name=2N5551
+T 62500 50500 5 10 1 1 180 6 1
+refdes=Q1
+}
+C 62100 52100 1 270 0 resistor-2.sym
+{
+T 62450 51700 5 10 0 0 270 0 1
+device=RESISTOR
+T 61700 51600 5 10 1 1 0 0 1
+value=4.4k
+T 62400 51600 5 10 1 1 0 0 1
+refdes=R3
+}
+C 62100 49300 1 270 0 resistor-2.sym
+{
+T 62450 48900 5 10 0 0 270 0 1
+device=RESISTOR
+T 61700 48800 5 10 1 1 0 0 1
+value=440
+T 62400 48800 5 10 1 1 0 0 1
+refdes=R4
+}
+C 60200 52100 1 270 0 resistor-2.sym
+{
+T 60550 51700 5 10 0 0 270 0 1
+device=RESISTOR
+T 59800 51600 5 10 1 1 0 0 1
+value=45280
+T 60500 51600 5 10 1 1 0 0 1
+refdes=R1
+}
+C 60200 49700 1 270 0 resistor-2.sym
+{
+T 60550 49300 5 10 0 0 270 0 1
+device=RESISTOR
+T 59800 49200 5 10 1 1 0 0 1
+value=8800
+T 60500 49200 5 10 1 1 0 0 1
+refdes=R2
+}
+N 60300 52300 60300 52100 4
+N 62200 52100 62200 52300 4
+N 62200 51200 62200 51000 4
+N 60300 49700 60300 51200 4
+N 62200 49300 62200 50000 4
+N 60300 48800 60300 48100 4
+N 62200 48400 62200 48100 4
+N 60300 52300 62200 52300 4
+N 58500 48100 64100 48100 4
+C 62000 52300 1 0 0 vcc-1.sym
+N 60300 50500 61600 50500 4
+N 60300 50500 59900 51000 4
+{
+T 59600 51000 5 10 1 1 0 0 1
+netname=Vb
+}
+C 60700 47800 1 0 0 gnd-1.sym
+{
+T 60700 47800 5 10 0 0 0 0 1
+netname=0
+}
+C 64000 49600 1 270 0 resistor-2.sym
+{
+T 64350 49200 5 10 0 0 270 0 1
+device=RESISTOR
+T 63600 49100 5 10 1 1 0 0 1
+value=22k
+T 64300 49100 5 10 1 1 0 0 1
+refdes=R5
+T 64700 49100 5 10 1 1 0 0 1
+comment=LOAD resistor
+}
+C 62900 50900 1 0 0 capacitor-1.sym
+{
+T 63100 51600 5 10 0 0 0 0 1
+device=CAPACITOR
+T 63100 51800 5 10 0 0 0 0 1
+symversion=0.1
+T 63200 51400 5 10 1 1 0 0 1
+refdes=C2
+T 63200 50700 5 10 1 1 0 0 1
+value=1m
+}
+N 62700 51100 62900 51600 4
+{
+T 63000 51600 5 10 1 1 0 0 1
+netname=Vc
+}
+N 62900 51100 62200 51100 4
+N 63800 51100 64100 51100 4
+N 64100 51100 64100 49600 4
+N 64100 48700 64100 48100 4
+N 64100 51100 64800 51600 4
+{
+T 64900 51600 5 10 1 1 0 0 1
+netname=Vout
+}
+N 62200 49600 62900 50100 4
+{
+T 63000 50100 5 10 1 1 0 0 1
+netname=Vr4
+}
+C 58300 49800 1 270 0 voltage-3.sym
+{
+T 59000 49600 5 8 0 0 270 0 1
+device=VOLTAGE_SOURCE
+T 58300 49800 5 10 0 0 0 0 1
+value=0 SIN (0 0.05 50  0 0 0) 
+T 58300 49800 5 10 0 0 0 0 1
+comment=SIN (Vo Va Freq Td Df Phase)
+T 57200 49300 5 10 1 1 0 0 1
+refdes=VSIGNAL
+}
+C 58900 50300 1 0 0 capacitor-1.sym
+{
+T 59100 51000 5 10 0 0 0 0 1
+device=CAPACITOR
+T 59100 51200 5 10 0 0 0 0 1
+symversion=0.1
+T 59200 50800 5 10 1 1 0 0 1
+refdes=C1
+T 59200 50100 5 10 1 1 0 0 1
+value=1m
+}
+N 58500 49800 58500 50500 4
+N 58500 50500 58900 50500 4
+N 59800 50500 60300 50500 4
+N 58500 48900 58500 48100 4
+N 58500 50500 58100 51000 4
+{
+T 57800 51000 5 10 1 1 0 0 1
+netname=Vin
+}
+C 55200 51900 1 0 0 spice-directive-1.sym
+{
+T 55300 52200 5 10 0 1 0 0 1
+device=directive
+T 55300 52300 5 10 1 1 0 0 1
+refdes=A2
+T 55200 49700 5 10 1 1 0 0 12
+value=.options savecurrents
+.control
+save all @q1[ib] @q1[ie]
+tran 0.5ms 0.08s
+run
+set color0=rgb:f/f/f
+set color1=rgb:0/0/0
+set curplottitle="Voltages"
+plot vin vout
+set curplottitle="Currents"
+plot @q1[ib] @q1[ie]
+.endc
+}

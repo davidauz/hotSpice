@@ -1,0 +1,176 @@
+v 20130925 2
+C 62400 48800 1 90 0 npn-3.sym
+{
+T 61900 49700 5 10 0 0 90 0 1
+device=NPN_TRANSISTOR
+T 61900 49700 5 10 1 1 90 0 1
+refdes=Q1
+T 62400 48800 5 10 0 0 90 0 1
+model-name=2N5551
+}
+C 54200 53500 1 0 0 spice-include-1.sym
+{
+T 54300 53800 5 10 0 1 0 0 1
+device=include
+T 54300 53900 5 10 1 1 0 0 1
+refdes=A1
+T 54700 53600 5 10 1 1 0 0 1
+file=2N5551.mod
+}
+C 57000 52000 1 0 0 vcc-1.sym
+C 57100 50800 1 0 0 gnd-1.sym
+{
+T 57100 50800 5 10 0 0 0 0 1
+netname=0
+}
+C 57000 52000 1 270 0 voltage-3.sym
+{
+T 57700 51800 5 8 0 1 270 0 1
+device=VOLTAGE_SOURCE
+T 57500 51600 5 10 1 1 0 0 1
+refdes=V1
+T 57500 51400 5 10 1 1 0 0 1
+value=DC 5V
+}
+C 61800 47300 1 0 0 gnd-1.sym
+{
+T 61800 47300 5 10 0 0 0 0 1
+netname=0
+}
+C 62800 52900 1 0 0 vcc-1.sym
+C 57600 49100 1 270 0 voltage-3.sym
+{
+T 58300 48900 5 8 0 0 270 0 1
+device=VOLTAGE_SOURCE
+T 57600 49100 5 10 0 0 0 0 1
+value=0 SIN (0 0.05 50  0 0 0) 
+T 57600 49100 5 10 0 0 0 0 1
+comment=SIN (Vo Va Freq Td Df Phase)
+T 56500 48600 5 10 1 1 0 0 1
+refdes=VSIGNAL
+}
+C 64500 49100 1 270 0 resistor-2.sym
+{
+T 64850 48700 5 10 0 0 270 0 1
+device=RESISTOR
+T 64100 48600 5 10 1 1 0 0 1
+value=22k
+T 64800 48600 5 10 1 1 0 0 1
+refdes=R5
+T 65200 48600 5 10 1 1 0 0 1
+comment=LOAD resistor
+}
+C 63300 49200 1 0 0 capacitor-1.sym
+{
+T 63500 49900 5 10 0 0 0 0 1
+device=CAPACITOR
+T 63500 50100 5 10 0 0 0 0 1
+symversion=0.1
+T 63600 49700 5 10 1 1 0 0 1
+refdes=C2
+T 63600 49000 5 10 1 1 0 0 1
+value=1m
+}
+C 62900 52400 1 270 0 resistor-2.sym
+{
+T 63250 52000 5 10 0 0 270 0 1
+device=RESISTOR
+T 62500 51900 5 10 1 1 0 0 1
+value=4.4k
+T 63200 51900 5 10 1 1 0 0 1
+refdes=R3
+}
+C 61100 49500 1 180 0 resistor-2.sym
+{
+T 60700 49150 5 10 0 0 180 0 1
+device=RESISTOR
+T 60500 49600 5 10 1 1 0 0 1
+value=440
+T 60500 49000 5 10 1 1 0 0 1
+refdes=R4
+}
+C 59500 50800 1 270 0 resistor-2.sym
+{
+T 59850 50400 5 10 0 0 270 0 1
+device=RESISTOR
+T 59100 50300 5 10 1 1 0 0 1
+value=45280
+T 59800 50300 5 10 1 1 0 0 1
+refdes=R1
+}
+C 59500 49100 1 270 0 resistor-2.sym
+{
+T 59850 48700 5 10 0 0 270 0 1
+device=RESISTOR
+T 59100 48600 5 10 1 1 0 0 1
+value=8800
+T 59800 48600 5 10 1 1 0 0 1
+refdes=R2
+}
+C 58200 49200 1 0 0 capacitor-1.sym
+{
+T 58400 49900 5 10 0 0 0 0 1
+device=CAPACITOR
+T 58400 50100 5 10 0 0 0 0 1
+symversion=0.1
+T 58500 49700 5 10 1 1 0 0 1
+refdes=C1
+T 58500 49000 5 10 1 1 0 0 1
+value=1m
+}
+N 57800 49100 57800 49400 4
+N 57800 49400 58200 49400 4
+N 57800 48200 57800 47600 4
+N 57800 47600 64600 47600 4
+N 61900 47600 61900 48800 4
+N 59100 49400 60200 49400 4
+N 59600 49100 59600 49400 4
+N 59600 48200 59600 47600 4
+N 61100 49400 61400 49400 4
+N 62400 49400 63300 49400 4
+N 64200 49400 64600 49400 4
+N 64600 49400 64600 49100 4
+N 64600 48200 64600 47600 4
+N 63000 51500 63000 49400 4
+N 63000 52400 63000 52900 4
+N 59600 49900 59600 49400 4
+N 59600 51100 63000 51100 4
+N 64600 49400 65300 49900 4
+{
+T 65400 49900 5 10 1 1 0 0 1
+netname=Vout
+}
+N 57800 49400 57400 49900 4
+{
+T 57100 49900 5 10 1 1 0 0 1
+netname=Vin
+}
+T 58100 52500 9 10 1 0 0 0 5
+The Common Base configuration:
+ - low input impedance
+ - high output impedance
+ - low voltage gain
+ - main usage in high frequency applications
+T 58100 53800 9 10 1 0 0 0 2
+Definition of Class A amplifiers:
+The current flows for the entire AC signal applied.
+C 54200 52500 1 0 0 spice-directive-1.sym
+{
+T 54300 52800 5 10 0 1 0 0 1
+device=directive
+T 54300 52900 5 10 1 1 0 0 1
+refdes=A2
+T 54200 50300 5 10 1 1 0 0 11
+value=.options savecurrents
+.control
+save all @q1[ib] @q1[ie]
+tran 0.5ms 0.08s
+set color0=rgb:f/f/f
+set color1=rgb:0/0/0
+set curplottitle="Voltages"
+plot vin vout
+set curplottitle="Currents"
+plot @q1[ib] @q1[ie]
+.endc
+}
+N 59600 50800 59600 51100 4
