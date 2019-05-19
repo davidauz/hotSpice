@@ -26,7 +26,8 @@ Press Ctrl+C to stop here.
 read a
 
 gschem sr.SUBCKT.sch test-sr.sch &
-gnetlist -g spice-sdb -o ../../../../subckts/sr.SUBCKT.cir sr.SUBCKT.sch
+gnetlist -g spice-sdb -o sr.SUBCKT.cir sr.SUBCKT.sch
+cp sr.SUBCKT.cir ../../../../subckts
 gnetlist -g spice-sdb -o net.net  test-sr.sch
 ngspice net.net
 

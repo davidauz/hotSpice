@@ -96,7 +96,7 @@ building  logic gates using discrete components.
 The real digital world runs on CMOS technology, but
 the old ways are still very interesting.
 
-This is the most basic NOT gate.
+This is the simplest NOT gate.
 
 The plot shows the base current and the output voltage.
 When the base current Vb is LOW then the 

@@ -48,9 +48,9 @@ T 58050 53450 5 8 0 0 0 0 1
 device=NOT_GATE
 T 57700 54100 5 10 1 1 0 0 1
 refdes=X1
-T 55500 53100 5 10 1 0 0 0 1
-file=../../../../subckts/not.SUBCKT.cir
-T 55500 52900 5 10 1 0 0 0 1
+T 55500 53100 5 10 0 0 0 0 1
+file=not.SUBCKT.cir
+T 55500 52900 5 10 0 0 0 0 1
 model-name=not_gate
 }
 N 58100 53700 58500 53700 4
@@ -68,11 +68,9 @@ N 54200 54400 54600 54900 4
 T 54700 54900 5 10 1 1 0 0 1
 netname=Vpulse
 }
-T 53300 57000 9 10 1 0 0 0 4
+T 53300 57000 9 10 1 0 0 0 2
 This is the schematic to test that our SUBCKT actually works.
 
-Yes I know the .cir file path is weird, but I like my SUBCKT netlists
-to be all in one place.
 C 50400 57100 1 0 0 spice-directive-1.sym
 {
 T 50500 57400 5 10 0 1 0 0 1

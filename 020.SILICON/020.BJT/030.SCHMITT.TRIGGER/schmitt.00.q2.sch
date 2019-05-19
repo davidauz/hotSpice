@@ -157,7 +157,7 @@ vb-vc = 6.522479e-01
 Vce(Sat)
 vc-ve = 2.224678e-01
 
-T 53300 47000 9 10 1 0 0 0 40
+T 53100 47000 9 10 1 0 0 0 41
 This is the rightmost half of a Schmitt trigger.
 To make things easy, this first step just aims
 to ensure that the BJT is in a saturated state 
@@ -171,12 +171,13 @@ Another approximation is that
 R1 and R2 are a voltage divider, and
 RC and RE are another.
 
-The transistor has to be saturated:
+The goal of the exercise is to have the transistor
+in saturation. Its base voltage is:
 
       Vb=Vcc(R2/(R1+R2))
 
 I assume that the base current is
-negligible:
+negligible, so:
 
        Ve = Vcc(Re/(RC+RE))
 
@@ -196,8 +197,8 @@ so
 
 Then another arbitrary decision: I 
 want 50mA in the collector and thus
-in the base way more than 0.5mA
-for saturation reasons.
+in the base current way more than 
+0.5mA for saturation reasons.
 B 58300 52500 2200 1900 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
 T 59500 54200 9 10 1 0 0 0 1
 R1 box

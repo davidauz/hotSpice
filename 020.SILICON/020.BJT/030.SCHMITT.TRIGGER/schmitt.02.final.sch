@@ -204,7 +204,7 @@ device=include
 T 85300 39600 5 10 1 1 0 0 1
 refdes=A2
 T 85700 39300 5 10 1 1 0 0 1
-file=../../../models/2N5551.mod
+file=2N5551.mod
 }
 T 82100 34500 9 10 1 0 0 0 5
 Here I used a real transistor model so the

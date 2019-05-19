@@ -250,7 +250,7 @@ device=include
 T 72200 42100 5 10 1 1 0 0 1
 refdes=A2
 T 72600 41800 5 10 1 1 0 0 1
-file=../../../models/2N5551.mod
+file=2N5551.mod
 }
 T 76700 44900 9 20 1 0 0 0 1
 inverting Schmitt trigger

@@ -13,7 +13,7 @@ device=NOT_GATE
 T 53200 51800 5 10 1 1 0 0 1
 refdes=X1
 T 51500 52000 5 10 0 0 0 0 1
-file=../../../../subckts/not.SUBCKT.cir
+file=not.SUBCKT.cir
 T 51500 52200 5 10 0 0 0 0 1
 model-name=not_gate
 }
@@ -24,7 +24,7 @@ device=NOT_GATE
 T 55600 51500 5 10 1 1 0 0 1
 refdes=X2
 T 55600 51700 5 10 0 1 0 0 1
-file=../../../../subckts/not.SUBCKT.cir
+file=not.SUBCKT.cir
 T 55600 51900 5 10 0 0 0 0 1
 model-name=not_gate
 }
@@ -66,7 +66,7 @@ T 51550 51050 5 10 1 1 0 6 1
 refdes=P2
 }
 T 51000 53600 9 10 1 0 0 0 1
-This SUBCKT is made from two other SUBCKTs.
+This SUBCKT is made of two other SUBCKTs.
 T 48700 49900 9 10 1 0 0 0 3
 Example symbol to be copy-pasted 
 into the destinatio schematic.

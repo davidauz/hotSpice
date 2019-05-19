@@ -91,7 +91,7 @@ symversion=1.0
 T 77795 38395 5 10 0 0 0 0 1
 device=schmitt_trigger_inv
 T 77800 38600 5 10 0 0 0 0 1
-file=../../../subckts/schmitt.inverting.SUBCKT.cir
+file=schmitt.inverting.SUBCKT.cir
 T 77800 38200 5 10 0 0 0 0 1
 model-name=schmitt_trigger_inv
 }

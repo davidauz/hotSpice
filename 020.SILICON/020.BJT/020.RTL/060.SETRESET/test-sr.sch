@@ -63,7 +63,7 @@ refdes=X1
 T 52300 46300 5 10 0 0 0 0 1
 device=sr_latch
 T 52300 46100 5 10 0 0 0 0 1
-file=../../../../subckts/sr.SUBCKT.cir
+file=sr.SUBCKT.cir
 T 52300 46500 5 10 0 0 0 0 1
 model-name=sr_latch
 T 52300 46700 5 10 0 0 0 0 1

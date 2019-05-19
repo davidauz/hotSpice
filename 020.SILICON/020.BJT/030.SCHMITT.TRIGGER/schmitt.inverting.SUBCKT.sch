@@ -206,5 +206,5 @@ device=include
 T 73600 42300 5 10 1 1 0 0 1
 refdes=A2
 T 74000 42000 5 10 1 1 0 0 1
-file=../../../models/2N5551.mod
+file=2N5551.mod
 }

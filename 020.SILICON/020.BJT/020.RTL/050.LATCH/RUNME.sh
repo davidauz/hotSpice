@@ -25,7 +25,8 @@ Press Ctrl+C to stop here.
 read a
 
 gschem test-latch.sch latch.SUBCKT.sch &
-gnetlist -g spice-sdb -o ../../../../subckts/latch.SUBCKT.cir latch.SUBCKT.sch
+cp ../../../../subckts/not.SUBCKT.cir .
+gnetlist -g spice-sdb -o latch.SUBCKT.cir latch.SUBCKT.sch
 gnetlist -g spice-sdb -o test-latch.net test-latch.sch
 ngspice test-latch.net
 

@@ -44,7 +44,8 @@ read a
 
 
 gschem nand.3.SUBCKT.sch nand.3.test.sch &
-gnetlist -g spice-sdb -o ../../../../subckts/nand.3.SUBCKT.cir nand.3.SUBCKT.sch
+gnetlist -g spice-sdb -o nand.3.SUBCKT.cir nand.3.SUBCKT.sch
+cp nand.3.SUBCKT.cir ../../../../subckts
 gnetlist -g spice-sdb -o net.net nand.3.test.sch
 ngspice net.net
 
