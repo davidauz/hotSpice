@@ -61,7 +61,7 @@ C 54000 50000 1 270 0 resistor-2.sym
 {
 T 54350 49600 5 10 0 0 270 0 1
 device=RESISTOR
-T 53600 49500 5 10 1 1 0 0 1
+T 54300 49300 5 10 1 1 0 0 1
 value=45280
 T 54300 49500 5 10 1 1 0 0 1
 refdes=R1
@@ -70,7 +70,7 @@ C 54000 47600 1 270 0 resistor-2.sym
 {
 T 54350 47200 5 10 0 0 270 0 1
 device=RESISTOR
-T 53600 47100 5 10 1 1 0 0 1
+T 54300 46900 5 10 1 1 0 0 1
 value=8800
 T 54300 47100 5 10 1 1 0 0 1
 refdes=R2
@@ -174,12 +174,11 @@ T 49000 50700 5 10 0 1 0 0 1
 device=directive
 T 49000 50800 5 10 1 1 0 0 1
 refdes=A2
-T 48900 48200 5 10 1 1 0 0 12
+T 48900 48200 5 10 1 1 0 0 11
 value=.options savecurrents
 .control
 save all @q1[ib] @q1[ie]
 tran 0.5ms 0.08s
-run
 set color0=rgb:f/f/f
 set color1=rgb:0/0/0
 set curplottitle="Voltages"

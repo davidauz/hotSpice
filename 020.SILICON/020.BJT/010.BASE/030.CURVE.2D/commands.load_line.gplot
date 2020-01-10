@@ -1,0 +1,24 @@
+set title "Characteristic curve of a transistor"
+set xlabel "Collector - Emitter Voltage (V)"
+set ylabel "Collector current (mA)"
+set style data lines
+set label 1 at 0.85,12 'Ib=1 mA' front
+set label 2 at 0.85,22 'Ib=2 mA' front
+set label 3 at 0.85,32 'Ib=3 mA' front
+set label 4 at 0.85,42 'Ib=4 mA' front
+set label 5 at 0.85,52 'Ib=5 mA' front
+set label 6 at 0.85,62 'Ib=6 mA' front
+set label 7 at 0.85,72 'Ib=7 mA' front
+set label 8 at 0.85,82 'Ib=8 mA' front
+set label 9 at 0.85,92 'Ib=9 mA' front
+set label 10 at 0.85,102 'Ib=10 mA' front
+set label 11 at 0.85,112 'Ib=11 mA' front
+set label 12 at 0.85,122 'Ib=12 mA' front
+set label 13 at 0.85,132 'Ib=13 mA' front
+set label 14 at 0.85,142 'Ib=14 mA' front
+set label 15 at 0.85,152 'Ib=15 mA' front
+set arrow nohead from 0,0 to 0,150
+set arrow nohead from 0,0 to 1,0
+set arrow nohead from 0,125 to 1,0
+plot "cooked.dat" using 2:4:3
+pause -1 "Hit return to continue"

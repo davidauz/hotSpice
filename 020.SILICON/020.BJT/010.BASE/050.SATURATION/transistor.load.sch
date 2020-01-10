@@ -75,7 +75,7 @@ N 59200 51400 59100 51800 4
 T 59200 51800 5 10 1 1 0 0 1
 netname=Vb
 }
-T 51300 50000 9 10 1 0 0 0 24
+T 51300 50000 9 10 1 0 0 0 25
 Previously in this screen there was the transistor characteristic 
 curve done in 2D and in 3D.
 That was without any load, and for a purpose: it had to show 
@@ -92,12 +92,13 @@ of the values in the domain, there should be no place for points
 ABOVE a curve.
 Why a ghost triangle above the values?  It makes no sense.
 However, let's start from the beginning.   In saturation 
-mode the current is supposed to flow freely as in a closed switch, but!  
+mode the current is supposed to "flow freely" as in a closed switch, but!  
 There is a limit!  The limit is the load applied to the BJT.
-Actually I think that a good definition should be "current flowing freely 
-up to the limit set by the load".  This definition mentions a load so 
-I prefer this to the other correct definition "when in a circuit the collector
- current cannot be increased more even if the base current increases."
+Actually the "current flows freely" mentioned above should be
+"current flows freely up to the limit set by the load" instead. 
+As a definition of saturation this makes more sense to me than the 
+usual one in the books: "when in a circuit the collector current cannot 
+be increased more even if the base current increases."
 In the plot the BJT characteristic curve bends under the load curve, 
 thus showing where exactly is the saturation region.
 T 62500 47600 9 10 1 0 0 0 20

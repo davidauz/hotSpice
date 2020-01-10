@@ -1,0 +1,168 @@
+v 20130925 2
+C 52400 53100 1 0 0 spice-include-1.sym
+{
+T 52500 53400 5 10 0 1 0 0 1
+device=include
+T 52500 53500 5 10 1 1 0 0 1
+refdes=A1
+T 52900 53200 5 10 1 1 0 0 1
+file=2N5551.mod
+}
+C 55400 50500 1 0 0 npn-3.sym
+{
+T 56300 51000 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 55400 50500 5 10 0 0 0 0 1
+model-name=2N5551
+T 56300 51000 5 10 1 1 0 0 1
+refdes=Q1
+}
+C 59200 50500 1 0 1 npn-3.sym
+{
+T 58300 51000 5 10 0 0 0 6 1
+device=NPN_TRANSISTOR
+T 59200 50500 5 10 0 0 0 6 1
+model-name=2N5551
+T 58300 51000 5 10 1 1 0 6 1
+refdes=Q2
+}
+C 55900 52800 1 270 0 resistor-2.sym
+{
+T 56250 52400 5 10 0 0 270 0 1
+device=RESISTOR
+T 55500 52300 5 10 1 1 0 0 1
+value=1200
+T 56200 52300 5 10 1 1 0 0 1
+refdes=RC1
+}
+C 58500 52800 1 270 0 resistor-2.sym
+{
+T 58850 52400 5 10 0 0 270 0 1
+device=RESISTOR
+T 58100 52300 5 10 1 1 0 0 1
+value=1200
+T 58800 52300 5 10 1 1 0 0 1
+refdes=RC2
+}
+C 57100 49500 1 270 0 resistor-2.sym
+{
+T 57450 49100 5 10 0 0 270 0 1
+device=RESISTOR
+T 56700 49000 5 10 1 1 0 0 1
+value=5k
+T 57400 49000 5 10 1 1 0 0 1
+refdes=RE
+}
+N 56000 50500 56000 50100 4
+N 56000 50100 58600 50100 4
+N 57200 49500 57200 50100 4
+N 58600 50100 58600 50500 4
+N 56000 51500 56000 51900 4
+N 58600 51500 58600 51900 4
+N 56000 52800 56000 53400 4
+N 56000 53400 58600 53400 4
+N 58600 53400 58600 52800 4
+C 54300 50700 1 270 0 voltage-3.sym
+{
+T 55000 50500 5 8 0 0 270 0 1
+device=VOLTAGE_SOURCE
+T 53800 50100 5 10 1 1 0 0 1
+value=DC 0
+T 53800 50300 5 10 1 1 0 0 1
+refdes=VS
+}
+N 55400 51000 54500 51000 4
+N 54500 51000 54500 50700 4
+N 59200 51000 60500 51000 4
+{
+T 59700 51000 5 10 1 1 0 0 1
+netname=Vor
+}
+N 54500 49300 54500 49800 4
+N 58600 51800 59200 52000 4
+{
+T 59200 52000 5 10 1 1 0 0 1
+netname=Vo2
+}
+N 56000 51700 56600 51900 4
+{
+T 56600 51900 5 10 1 1 0 0 1
+netname=Vo1
+}
+N 54500 51000 54200 51400 4
+{
+T 53700 51500 5 10 1 1 0 0 1
+netname=Vin
+}
+C 57000 53400 1 0 0 vcc-1.sym
+{
+T 57100 53800 5 10 0 1 0 0 1
+netname=vcc
+}
+C 54400 49000 1 0 0 gnd-1.sym
+{
+T 54700 49000 5 10 1 1 0 0 1
+netname=0
+}
+C 51800 52000 1 270 0 voltage-3.sym
+{
+T 52500 51800 5 8 0 1 270 0 1
+device=VOLTAGE_SOURCE
+T 52300 51600 5 10 1 1 0 0 1
+refdes=V1
+T 52300 51400 5 10 1 1 0 0 1
+value=DC 5V
+}
+N 52000 51100 53200 51100 4
+C 53100 50800 1 0 0 gnd-1.sym
+{
+T 53000 50800 5 10 1 1 0 0 1
+netname=0
+}
+C 51800 52000 1 0 0 vcc-1.sym
+{
+T 51900 52400 5 10 0 1 0 0 1
+netname=vcc
+}
+C 57400 48600 1 180 0 vee-1.sym
+{
+T 57400 48600 5 10 0 0 0 0 1
+netname=vee
+}
+C 51800 51100 1 270 0 voltage-3.sym
+{
+T 52500 50900 5 8 0 1 270 0 1
+device=VOLTAGE_SOURCE
+T 52300 50700 5 10 1 1 0 0 1
+refdes=V2
+T 52300 50500 5 10 1 1 0 0 1
+value=DC 5V
+}
+C 52200 50200 1 180 0 vee-1.sym
+{
+T 52200 50200 5 10 0 0 0 0 1
+netname=vee
+}
+C 60200 52900 1 0 0 spice-directive-1.sym
+{
+T 60300 53200 5 10 0 1 0 0 1
+device=directive
+T 60300 53300 5 10 1 1 0 0 1
+refdes=A2
+T 60200 52000 5 10 1 1 0 0 6
+value=.control
+dc vs -0.1v 0.1v 10mv
+set color0=rgb:f/f/f
+set color1=rgb:0/0/0
+plot vin vo1 vo2
+.endc
+}
+T 54300 54400 9 10 1 0 0 0 2
+In this configuration there is only one real input, the other is grounded.
+This particular configuration is called single-ended input.
+C 60400 49000 1 0 0 gnd-1.sym
+{
+T 60700 49000 5 10 1 1 0 0 1
+netname=0
+}
+N 60500 49300 60500 51000 4
