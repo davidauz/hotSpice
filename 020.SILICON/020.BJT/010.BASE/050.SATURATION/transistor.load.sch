@@ -76,7 +76,7 @@ T 59200 51800 5 10 1 1 0 0 1
 netname=Vb
 }
 T 51300 50000 9 10 1 0 0 0 25
-Previously in this screen there was the transistor characteristic 
+This circuit is copied from the one for the transistor characteristic 
 curve done in 2D and in 3D.
 That was without any load, and for a purpose: it had to show 
 how the transistor itself limited the current.
