@@ -1,7 +1,8 @@
 v 20130925 2
-T 30400 69400 9 10 1 0 0 0 2
+T 30400 69400 9 10 1 0 0 0 3
 The electrical part of a DC motor can be approxed with an inductor, a resistor and a voltage source in series.
 These stand respectively for the coil inductance, coil resistance, and back EMF.
+Hre we try simulating a DC motor and show some pretty pictures.
 T 31000 61500 9 10 1 0 0 0 6
 The back EMF Voltage Source is dependant on the speed of the motor and the torque constant KT.
 The mechanical system on the right is there to calculate the speed of the motor.
