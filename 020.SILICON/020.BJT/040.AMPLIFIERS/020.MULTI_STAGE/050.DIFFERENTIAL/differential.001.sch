@@ -679,8 +679,8 @@ T 72600 64600 9 20 1 0 0 0 1
 Step ③
 T 81400 64600 9 20 1 0 0 0 1
 Step ④
-T 83200 61200 9 10 1 0 0 0 19
-Here is where the shit hits the fan.
+T 83200 61200 9 10 1 0 0 0 18
+Here is where things begin going south.
 We replace the resistors Rc1e and Rc2e from step (4) with another current mirror.
 The reference current for ql1f is the current flowing through q1f.
 This means that when q1f collector current goes up, then the collector current for q2f goes down.
@@ -688,9 +688,8 @@ But ql2f is bound to have the same current as ql1f, so the difference is greater
 This is supposed to have miraculous effects on the gain.
 However, nobody ever mentions the fact that the resulting signal goes horribly distorted.
 Sure op-amps are based on the differential amplifier, but
-it is surrounded by a huge family of other 
-components: to restore the signal to
-the original shape (and to ensure 
+it is surrounded by a huge family of other components: 
+to restore the signal to the original shape (and to ensure 
 low output impedance).
 
 .control

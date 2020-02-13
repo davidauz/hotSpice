@@ -65,7 +65,7 @@ C 79000 39800 1 0 0 resistor-2.sym
 T 79400 40150 5 10 0 0 0 0 1
 device=RESISTOR
 T 79700 40200 5 10 1 1 180 0 1
-value=500
+value=1500
 T 79400 40200 5 10 1 1 0 0 1
 refdes=R4
 }

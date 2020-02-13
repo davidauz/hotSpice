@@ -20,7 +20,7 @@ T 33400 67600 5 10 0 1 0 0 1
 netname=vcc
 }
 T 34900 69100 9 10 1 0 0 0 1
-Step 4: pulse width modulation
+Step 1: astable oscillator
 C 39400 67100 1 90 0 resistor-2.sym
 {
 T 39100 67800 5 10 1 1 180 0 1
@@ -122,3 +122,69 @@ set color0=rgb:f/f/f
 set color1=rgb:0/0/0
 .endc
 }
+T 35200 63100 9 10 1 0 0 0 4
+First thing that comes to mind is to use our old friend the astable oscillator.
+Problems: the output waveform is weird, and there is no way to control the pulse
+width without screwing the frequency too.
+Of course it can be used but is isn't very efficient.
+C 44500 65500 1 0 0 voltage-comparator.sym
+{
+T 46200 66350 5 10 0 0 0 0 1
+device=V_COMPARATOR
+T 44800 66400 5 10 1 1 0 0 1
+refdes=X1
+T 44500 65500 5 10 1 0 0 0 1
+graphical=1
+}
+T 42200 68200 9 10 1 0 0 0 5
+Should we use the square wave generator from the Schmitt trigger example?
+Also problem: cannot change the impulse width alone independently from the 
+frequency.
+Solution: use the sawtooth wave generator with a voltage comparator.  
+The one from the differential amplifier example will do.
+C 43600 64700 1 90 0 pot-bourns.sym
+{
+T 42700 65500 5 10 0 0 90 0 1
+device=VARIABLE_RESISTOR
+T 43200 65500 5 10 1 1 180 0 1
+refdes=R1a
+T 43600 64700 5 10 0 0 0 0 1
+graphical=1
+}
+C 43400 63500 1 0 0 gnd-1.sym
+{
+T 43300 63500 5 10 1 1 0 0 1
+netname=0
+}
+N 43500 64700 43500 63800 4
+N 43000 65200 43000 64700 4
+N 43000 64700 43500 64700 4
+N 43500 65600 43500 65800 4
+N 43500 65800 44500 65800 4
+L 42900 66500 43200 66800 3 0 0 0 -1 -1
+L 43500 66500 43200 66800 3 0 0 0 -1 -1
+L 43500 66500 43800 66800 3 0 0 0 -1 -1
+L 44100 66500 43800 66800 3 0 0 0 -1 -1
+L 46000 66300 46300 66300 3 0 0 0 -1 -1
+L 46300 66300 46300 66800 3 0 0 0 -1 -1
+L 46300 66800 46800 66800 3 0 0 0 -1 -1
+L 46800 66800 46800 66300 3 0 0 0 -1 -1
+L 46800 66300 47100 66300 3 0 0 0 -1 -1
+L 47100 66300 47100 66800 3 0 0 0 -1 -1
+L 47100 66800 47600 66800 3 0 0 0 -1 -1
+L 47600 66800 47600 66300 3 0 0 0 -1 -1
+L 47600 66300 47900 66300 3 0 0 0 -1 -1
+N 44500 66200 44300 66500 4
+{
+T 44200 66600 5 10 1 1 0 0 1
+netname=in
+}
+N 45600 66000 45800 66300 4
+{
+T 45700 66400 5 10 1 1 0 0 1
+netname=out
+}
+B 42000 62800 6800 6500 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
+T 42800 65700 9 10 1 0 0 0 2
+reference
+voltage

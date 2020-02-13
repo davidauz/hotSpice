@@ -37,7 +37,7 @@ device=RESISTOR
 T 76900 40500 5 10 1 1 0 0 1
 refdes=R1
 T 77300 41100 5 10 1 1 180 0 1
-value=500
+value=5000
 }
 N 76600 40800 76200 40800 4
 N 76200 40800 76200 39100 4
@@ -69,7 +69,7 @@ value=.control
 tran 0.01ms 0.1s
 set color0=rgb:f/f/f
 set color1=rgb:0/0/0
-plot o2
+plot o2 o1
 .endc
 }
 C 77100 38600 1 0 0 schmitt-trigger-inv.sym
@@ -84,3 +84,11 @@ T 77100 38600 5 10 0 0 0 0 1
 file=./schmitt.inv.SUBCKT.audio.cir
 }
 N 77100 39100 76200 39100 4
+T 79100 39500 9 10 1 0 0 0 3
+square 
+wave
+(sort of)
+T 75200 40200 9 10 1 0 0 0 3
+saw
+tooth
+(sort of)
