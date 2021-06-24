@@ -4,39 +4,39 @@ C 53400 50400 1 0 0 gnd-1.sym
 T 53500 50200 5 10 1 1 0 0 1
 netname=0
 }
-C 57800 47200 1 0 0 nmos-1.sym
+C 58800 47600 1 0 0 nmos-1.sym
 {
-T 58500 48000 5 10 0 0 0 0 1
+T 59500 48400 5 10 0 0 0 0 1
 device=NMOS_TRANSISTOR
-T 58500 47800 5 10 0 1 0 0 1
+T 59500 48200 5 10 0 1 0 0 1
 refdes=Q?
-T 58500 48200 5 10 0 0 0 0 1
+T 59500 48600 5 10 0 0 0 0 1
 symversion=0.1
-T 57800 46900 5 10 1 1 0 0 1
+T 58800 47300 5 10 1 1 0 0 1
 comment=NMOS transistor
-T 57800 47200 5 10 0 0 0 0 1
+T 58800 47600 5 10 0 0 0 0 1
 graphical=1
 }
-C 57800 45800 1 0 0 pmos-1.sym
+C 58800 46200 1 0 0 pmos-1.sym
 {
-T 58400 46000 5 10 0 0 0 0 1
+T 59400 46400 5 10 0 0 0 0 1
 device=PMOS_TRANSISTOR
-T 58500 46400 5 10 0 1 0 0 1
+T 59500 46800 5 10 0 1 0 0 1
 refdes=Q?
-T 57600 45500 5 10 1 1 0 0 1
+T 58600 45900 5 10 1 1 0 0 1
 comment=PMOS transistor
-T 57800 45800 5 10 0 0 0 0 1
+T 58800 46200 5 10 0 0 0 0 1
 graphical=1
 }
-C 49700 46300 1 0 0 nmos-3.sym
+C 49700 45400 1 0 0 nmos-3.sym
 {
-T 50300 46800 5 10 0 0 0 0 1
+T 50300 45900 5 10 0 0 0 0 1
 device=NMOS_TRANSISTOR
-T 50400 46900 5 10 0 1 0 0 1
+T 50400 46000 5 10 0 1 0 0 1
 refdes=J1
-T 50300 46700 5 10 1 1 0 0 1
+T 50300 45800 5 10 1 1 0 0 1
 comment=N channel MOSFET: enhancement mode insulated gate FET
-T 49700 46300 5 10 0 0 0 0 1
+T 49700 45400 5 10 0 0 0 0 1
 graphical=1
 }
 C 49700 47400 1 0 0 pmos-3.sym
@@ -70,8 +70,8 @@ N 55300 53500 55300 52400 4
 N 57200 51700 57200 50700 4
 T 50600 52700 9 10 1 0 0 0 5
 To make this work, the NJFET component
-has to have the "NFET_TRANSISTOR"
-device description.
+must have thedevice description set to
+"NFET_TRANSISTOR".
 See  "Native components and their attributes"
 at:  http://wiki.geda-project.org/geda:csygas
 T 51400 48600 9 10 1 0 0 0 2
@@ -123,3 +123,17 @@ plot @j1[id]
 .endc
 
 }
+T 48800 43600 9 10 1 0 0 0 7
+To turn on a N-Channel Enhancement-type MOSFET, apply a sufficient positive voltage 
+to the drain of the transistor and a sufficient positive voltage to the gate of the transistor. 
+This will allow a current to flow through the drain-source channel.
+
+So with a sufficient positive voltage, and sufficient positive voltage applied to the gate,
+the N-Channel Enhancement-type MOSFET is fully functional and is in the 'ON' operation.
+
+T 50000 46300 9 10 1 0 0 0 1
+Drain
+T 50300 45300 9 10 1 0 0 0 1
+source
+T 49200 45600 9 10 1 0 0 0 1
+gate

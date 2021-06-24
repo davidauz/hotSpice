@@ -53,13 +53,11 @@ N 37600 66500 38100 66500 4
 T 34900 69900 9 10 1 0 0 0 1
 Step 1: how to fry a pot
 B 34800 63600 6800 6500 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
-T 35000 63600 9 10 1 0 0 0 7
+T 35000 63600 9 10 1 0 0 0 5
 When the pot is at maximum value, little current will be allowed to pass through
 and the motor won't move.   When at minimum, smoke will be seen from the pot,
 optionally followed by sparks.
-Even a big pot wouldn't be a good solution, because this kind of application is 
-usually seen in motors driven by a battery, and nobody wants to waste excess
-power as heat.
+Anyway this is not a good solution because of the waste of excess power as heat.
 
 B 42000 63600 6800 6500 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
 C 45500 67600 1 0 0 dc_motor-1.sym
@@ -113,7 +111,7 @@ N 44700 67200 44700 67300 4
 N 44700 67300 44100 67300 4
 N 44100 67300 44100 66700 4
 T 42300 63700 9 10 1 0 0 0 4
-A power transistor would be better, provided it had a sufficiently big dissipator.
+A power transistor would be better, provided it had a big enough dissipator.
 This way the current through the pot would be way smaller.
 There still is one problem: when the motor stops the back EMF current would 
 hit the transistor hard, with the usual flames and smoke show.
@@ -192,8 +190,6 @@ N 52400 67600 53300 67600 4
 N 53300 67600 53300 67700 4
 T 56300 69900 9 10 1 0 0 0 1
 Step 4: pulse width modulation
-T 60800 67900 8 10 1 1 0 0 1
-value=1k
 C 61900 69100 1 0 0 vcc-1.sym
 {
 T 62000 69500 5 10 0 1 0 0 1
@@ -243,11 +239,12 @@ device=DC_MOTOR
 T 61000 68300 5 10 1 1 0 0 1
 refdes=M1d
 }
-T 56500 64100 9 10 1 0 0 0 4
+T 56500 64000 9 10 1 0 0 0 5
 Instead of modulating the voltage, the accepted solution is to supply our
 motor with pulses at full voltage.
-The frequency of the pulsas is constant, what changes is the pulse width.
-The wider the pulse, the faster goes the motor.
+The frequency of the pulses is supposed to be  constant; what changes is
+the pulse width.
+The wider the pulse, the faster the motor goes.
 L 57100 67300 57400 67300 3 0 0 0 -1 -1
 L 57400 67300 57400 68400 3 0 0 0 -1 -1
 L 57400 68400 57900 68400 3 0 0 0 -1 -1
