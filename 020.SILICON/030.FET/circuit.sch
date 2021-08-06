@@ -70,8 +70,8 @@ N 55300 53500 55300 52400 4
 N 57200 51700 57200 50700 4
 T 50600 52700 9 10 1 0 0 0 5
 To make this work, the NJFET component
-must have thedevice description set to
-"NFET_TRANSISTOR".
+has to have the "NFET_TRANSISTOR"
+device description.
 See  "Native components and their attributes"
 at:  http://wiki.geda-project.org/geda:csygas
 T 51400 48600 9 10 1 0 0 0 2
