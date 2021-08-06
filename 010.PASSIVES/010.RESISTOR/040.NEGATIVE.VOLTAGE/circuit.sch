@@ -53,7 +53,7 @@ T 30500 52800 9 10 1 0 0 0 4
 It is possible to obtain a negative voltage from a single voltage source
 by setting up a voltage divider and placing the ground in the middle.
 
-Just be careful with the currents.
+Just do your math with the currents.
 C 31400 51400 1 0 0 spice-directive-1.sym
 {
 T 31500 51700 5 10 0 1 0 0 1

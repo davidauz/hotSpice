@@ -74,17 +74,23 @@ T 49600 68300 5 10 0 1 0 0 1
 device=directive
 T 49600 68400 5 10 1 1 0 0 1
 refdes=A1
-T 49500 65800 5 10 1 1 0 0 12
-value=.options savecurrents
-.control
-save all @c1[i] @l1[i]
+T 49600 64400 5 10 1 1 0 0 18
+value=* savecurrents has to be BEFORE .control OR WONT WORK                                                                                                                                                               
+.options savecurrents                                                                                                                                                                                               
+                                                                                                                                                                                                                    
+.control                                                                                                                                                                                                            
+save all
+                                                                                                                                                                                                                    
+* transient analysis                                                                                                                                                                                                
+* tran Tstep Tstop [ Tstart [ Tmax ] ] [ UIC ]                                                                                                                                                                      
 tran 0.01ms 20ms
+
+set color0=rgb:f/f/f                                                                                                                                                                                                
+set color1=rgb:0/0/0                                                                                                                                                                                                
+
 set curplottitle="Parallel resonant circuit currents"
 plot @c1[i] @l1[i]
 set curplottitle="Parallel resonant circuit voltages"
 plot vin vout
-echo "*******************************************************"
-echo "* Exit ngspice by pressing Ctrl+D or by typing 'exit' *"
-echo "*******************************************************"
-.endc
+.endc            
 }

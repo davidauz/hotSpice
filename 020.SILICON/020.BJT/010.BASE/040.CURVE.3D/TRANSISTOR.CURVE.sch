@@ -71,9 +71,10 @@ save all @q1[ib] @q1[ic]
 dc vce -0.05 1v 0.01 ib 0 1.5ma 0.1ma
 .endc
 }
-T 59800 50000 9 10 1 0 0 0 7
-Here we are using the results of the simulation to
+T 59800 50000 9 10 1 0 0 0 8
+This is for using the results of the simulation to
 draw a gnuplot chart.
+Use the RUNME.sh script.
 ngspice is being run in batch mode: it does not show 
 any plot, but instead writes numbers in a file.
 Hint: when the gnuplot shows up, try clicking and dragging

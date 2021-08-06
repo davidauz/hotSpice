@@ -28,7 +28,7 @@ alter R1 100
 op
 echo "R1 is 100"
 print @r1[i] @r2[i]
-echo "result: WRONG!"
+echo "result: WRONG..."
 .endc
 
 }

@@ -48,7 +48,7 @@ C 41700 74200 1 0 0 gnd-1.sym
 T 41700 74200 5 10 0 0 0 0 1
 netname=0
 }
-T 44900 76400 9 10 1 0 0 0 17
+T 44800 76900 9 10 1 0 0 0 17
 Each of the resistors has a voltage drop as Mr. Ohm found out:
 
 	V=RI
@@ -81,7 +81,12 @@ echo "* Exit ngspice by pressing Ctrl+D or by typing 'exit' *"
 echo "*******************************************************"
 .endc
 }
-T 47600 74400 9 10 1 0 0 0 6
+T 47400 74100 9 10 1 0 0 0 11
+To run the simulation:
+
+gnetlist -g spice-sdb -o net.net voltage.divider.sch                                                                                                                                                                
+ngspice net.net 
+
 Hint
 try these commands at the prompt:
 

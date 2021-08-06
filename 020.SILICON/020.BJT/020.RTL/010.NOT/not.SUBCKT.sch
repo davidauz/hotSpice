@@ -61,13 +61,13 @@ device=spice-IO
 T 59350 53450 5 10 1 1 0 6 1
 refdes=P4
 }
-C 55500 56000 1 0 0 spice-subcircuit-LL-1.sym
+C 56600 56000 1 0 0 spice-subcircuit-LL-1.sym
 {
-T 55600 56300 5 10 0 1 0 0 1
+T 56700 56300 5 10 0 1 0 0 1
 device=spice-subcircuit-LL
-T 55600 56400 5 10 1 1 0 0 1
+T 56700 56400 5 10 1 1 0 0 1
 refdes=A1
-T 55600 56100 5 10 1 1 0 0 1
+T 56700 56100 5 10 1 1 0 0 1
 model-name=not_gate
 }
 T 59200 55300 9 10 1 0 0 0 4
@@ -75,7 +75,7 @@ P1=+V
 P2=input
 P3=0
 P4=output
-T 51300 51800 9 10 1 0 0 0 10
+T 51500 55400 9 10 1 0 0 0 7
 This is the symbol for this SUBCKT.
 It can be copy-pasted into the upper level schematic.
 Remember to remove the "graphical" attribute.
@@ -83,9 +83,6 @@ Remember to remove the "graphical" attribute.
 N.B.: the symbol itself is in the folder
 specified in the gafrc file
 
-If you are seeing this with the RUNME.sh, press
-PgUp - PgDown to switch from this schematic
-to the test circuit.
 T 60700 51000 9 10 1 0 0 0 27
 1. Draw the schematic and place a spice-subcircuit-LL block (spice-subcircuit-LL-1.sym). 
    This needs a model-name attribute so that gnetlist will insert a .SUBCKT row.
@@ -130,3 +127,8 @@ N 57600 52700 57800 52700 4
 T 57100 57000 9 10 1 0 0 0 2
 Tis is the NOT gate as a subcircuit, to be used as
 a building block for more complex circuits.
+T 51300 51200 9 10 1 0 0 0 4
+Generate the cir file with:
+gnetlist -g spice-sdb -o not.SUBCKT.cir not.SUBCKT.sch
+In order for other schematics to use it, copy the cir file here:
+cp not.SUBCKT.cir ../../../../subckts

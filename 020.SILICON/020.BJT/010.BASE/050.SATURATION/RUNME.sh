@@ -3,11 +3,6 @@
 rm -f *~ *.net *.raw *~ *\.dat \#*
 find . -type d -empty -delete
 
-clear
-echo -n "CURRENT FOLDER: "
-pwd
-
-gschem resistor.curve.sch &
 gnetlist -g spice-sdb -o net.net resistor.curve.sch
 # the -b switch stands for 'batch': just spit out the numbers
 ngspice -b net.net > raw1.dat
@@ -31,7 +26,6 @@ Press Ctrl+C to stop here.
 "
 read a
 
-gschem transistor.load.sch &
 gnetlist -g spice-sdb -o net.net transistor.load.sch
 # the -b switch stands for 'batch': no plot, just spit out the numbers
 ngspice -b net.net > transistor.load.raw

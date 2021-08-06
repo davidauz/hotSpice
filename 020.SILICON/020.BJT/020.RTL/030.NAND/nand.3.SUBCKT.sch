@@ -149,3 +149,8 @@ N 57400 49500 57800 49500 4
 N 58700 49500 59100 49500 4
 N 58700 51200 59100 51200 4
 N 58700 52700 59100 52700 4
+T 50700 50100 9 10 1 0 0 0 4
+Generate the cir file with:
+gnetlist -g spice-sdb -o nand.3.SUBCKT.cir nand.3.SUBCKT.sch
+In order for other schematics to use it, copy the cir file here:
+cp nand.3.SUBCKT.cir ../../../../subckts

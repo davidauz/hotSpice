@@ -112,7 +112,7 @@ N 44700 67300 44100 67300 4
 N 44100 67300 44100 66700 4
 T 42300 63700 9 10 1 0 0 0 4
 A power transistor would be better, provided it had a big enough dissipator.
-This way the current through the pot would be way smaller.
+This way the current through the pot would be much smaller.
 There still is one problem: when the motor stops the back EMF current would 
 hit the transistor hard, with the usual flames and smoke show.
 B 49200 63600 6800 6500 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1

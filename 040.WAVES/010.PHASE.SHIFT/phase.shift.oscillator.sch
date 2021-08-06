@@ -119,7 +119,7 @@ T 38900 65800 5 10 0 1 0 0 1
 value=pulse (0 1 0.01 0.001 0.001 0.001 5) DC 5
 T 40400 67300 5 10 0 0 0 0 1
 comment=initial v, pulsed v, delay t, rise t, fall t, pulse width,period
-T 40100 66800 5 10 1 1 0 0 1
+T 39800 66800 5 10 1 1 0 0 1
 refdes=VPulse
 }
 N 40600 67300 41400 67300 4

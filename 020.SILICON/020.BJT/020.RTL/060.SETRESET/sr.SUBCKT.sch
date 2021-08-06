@@ -89,31 +89,31 @@ refdes=P2
 }
 N 49300 47500 49800 47500 4
 N 53900 47500 53600 47500 4
-T 55700 48000 9 10 1 0 0 0 6
+T 56000 48200 9 10 1 0 0 0 6
 P1=SET
 P2=RESET
 P3=Q
 P4=NOT Q
 P5=VCC
 P6=gnd
-C 55900 45000 1 0 0 set-reset.sym
+C 55800 44600 1 0 0 set-reset.sym
 {
-T 56100 46400 5 10 1 1 0 0 1
+T 56000 46000 5 10 1 1 0 0 1
 refdes=X?
-T 56200 44400 5 10 1 0 0 0 1
+T 56100 44000 5 10 1 0 0 0 1
 device=sr_latch
-T 56200 44600 5 10 1 0 0 0 1
+T 56100 44200 5 10 1 0 0 0 1
 graphical=1
 }
-C 49800 49600 1 0 0 spice-subcircuit-LL-1.sym
+C 47400 49100 1 0 0 spice-subcircuit-LL-1.sym
 {
-T 49900 49900 5 10 0 1 0 0 1
+T 47500 49400 5 10 0 1 0 0 1
 device=spice-subcircuit-LL
-T 49900 50000 5 10 1 1 0 0 1
+T 47500 49500 5 10 1 1 0 0 1
 refdes=A1
-T 49900 49700 5 10 1 1 0 0 1
+T 47500 49200 5 10 1 1 0 0 1
 model-name=sr_latch
-T 49800 49600 5 10 0 0 0 0 1
+T 47400 49100 5 10 0 0 0 0 1
 comment="device" MUST be "spice-subcircuit-LL"
 }
 C 53700 47800 1 180 1 spice-subcircuit-IO-1.sym
@@ -152,6 +152,11 @@ N 52500 46300 52300 46300 4
 N 52300 46300 52300 46900 4
 N 51000 46300 51200 46300 4
 N 51200 46300 51200 46900 4
-T 53100 49800 9 10 1 0 0 0 2
+T 47200 43900 9 10 1 0 0 0 7
 This is the SUBCKT for the SR flip-flop.
-
+Generate the cir file with this command:
+gnetlist -g spice-sdb -o sr.SUBCKT.cir sr.SUBCKT.sch
+then copy the resulting cir file to the subckts folder:
+cp sr.SUBCKT.cir ../../../../subckts
+This way it will be available to other schematics as a SUBCKT.
+neat!

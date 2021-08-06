@@ -88,13 +88,21 @@ value=500
 T 53300 59100 5 10 1 1 0 0 1
 refdes=R1
 }
-T 49400 56900 9 10 1 0 0 0 9
+T 48600 56300 9 10 1 0 0 0 9
 As per Ohm,s law, the current I1 in R1 will be 
 I1=5/500=0.01A=10mA
-while in R2
+while I2 in R2
 I2=5/200=0.025A=25mA
 Now suppose that R1 is a pot and I have fun
 turning it up and down.
 What will happen to R2?  Nothing, because it is still
 connected to the same voltage, so nothing will 
 change there.
+L 53800 58500 53700 58600 3 0 0 0 -1 -1
+L 53800 58500 53900 58600 3 0 0 0 -1 -1
+T 54000 58500 9 10 1 0 0 0 1
+I1
+T 56300 58500 9 10 1 0 0 0 1
+I2
+L 56600 58500 56500 58600 3 0 0 0 -1 -1
+L 56600 58500 56700 58600 3 0 0 0 -1 -1

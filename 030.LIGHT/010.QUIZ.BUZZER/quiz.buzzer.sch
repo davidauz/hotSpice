@@ -398,7 +398,7 @@ C 66300 52700 1 0 0 vcc-1.sym
 T 66300 52700 5 10 0 0 0 0 1
 netname=vcc
 }
-T 55600 64900 9 10 1 0 0 0 10
+T 56200 65100 9 10 1 0 0 0 10
 Here is one funny application of the RTL SUBCKTs in the previous examples.
 It is supposed to be a quiz buzzer (well, actually more a quiz LED lighter).
 
@@ -650,3 +650,11 @@ Player 3
 B 52200 48700 3800 2700 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
 T 52200 51200 9 10 1 0 0 0 1
 The judge who resets all lights to zero.
+T 59800 47200 9 10 1 0 0 0 7
+N.B. to make this work you need to have the SUBCKT in the right place.
+
+1.Double click the components
+2.Look for the 'file' directive
+3.Find the right source schematic
+4.Generate the 'cir' file
+5.Move the 'cir' file to the right place

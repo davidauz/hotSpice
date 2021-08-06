@@ -70,12 +70,13 @@ echo		print a string
 
 
 
-T 38700 79300 9 10 1 0 0 0 8
-This is the first schematics seen when starting from the top.
+T 38700 79300 9 10 1 0 0 0 9
+This is the first schematic that actually has something to show.
 
-Tipically every RUNME script lanches a gschem in background and
- then ngspice is used for the simulation and plots.
-Occasionaly there is a bit of cooking up the data and some gnuplot too.
+To run the simulation, issue the following commands:
+
+gnetlist -g spice-sdb -o net.net circuit.sch                                                                                                                                                                        
+ngspice net.net
 
 When you are done you can close gschem (Alt+F4) and exit 
 ngspice (Ctrl+D or 'exit' in the terminal.)

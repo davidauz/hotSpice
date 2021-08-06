@@ -49,7 +49,7 @@ N 51000 68700 51500 68700 4
 N 51500 66700 51500 65600 4
 N 51500 67600 51500 68700 4
 T 46200 69800 9 10 1 0 0 0 2
-In the previoous circuit there were resistors and capacitors and resistors (RC).
+In the previoous circuit there were resistors and capacitors (RC).
 The same happens with capacitors and resistors (CR).
 C 47500 67600 1 270 0 resistor-2.sym
 {

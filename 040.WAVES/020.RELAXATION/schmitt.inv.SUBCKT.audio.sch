@@ -199,3 +199,6 @@ graphical=1
 }
 T 73800 43000 9 10 1 0 0 0 1
 This is the same circuit seen in the BJT folder, adjusted for an audible frequency.
+T 76500 35200 9 10 1 0 0 0 2
+To generate the cir file:
+gnetlist -g spice-sdb -o schmitt.inv.SUBCKT.audio.cir schmitt.inv.SUBCKT.audio.sch

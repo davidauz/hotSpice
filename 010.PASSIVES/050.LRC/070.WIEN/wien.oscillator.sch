@@ -131,14 +131,14 @@ model-name=genericNPN
 T 53200 68900 5 10 0 1 0 0 1
 model=npn
 }
-C 52300 69200 1 0 0 capacitor-1.sym
+C 51900 69200 1 0 0 capacitor-1.sym
 {
-T 52800 70200 5 10 1 1 180 0 1
+T 52400 70200 5 10 1 1 180 0 1
 refdes=C3
-T 52900 70000 5 10 1 1 180 0 1
+T 52500 70000 5 10 1 1 180 0 1
 value=10uf
 }
-N 52300 69400 50900 69400 4
+N 51900 69400 50900 69400 4
 C 53600 70400 1 0 0 vcc-1.sym
 {
 T 53600 70400 5 10 0 0 0 0 1
@@ -192,3 +192,4 @@ netname=vO
 T 50000 63800 9 10 1 0 0 0 2
 https://www.electronics-tutorials.ws/oscillator/wien_bridge.html
 
+N 52800 69400 53200 69400 4

@@ -140,8 +140,10 @@ C 50900 48000 1 0 0 gnd-1.sym
 T 50900 48000 5 10 0 0 0 0 1
 netname=0
 }
-T 46400 51000 9 10 1 0 0 0 1
+T 44800 51100 9 10 1 0 0 0 3
 This is the test circuit for the SR SUBCKT.
+You need to generate the cir file first.
+Open the SUBCKT.sch schematic and follow the instructions.
 C 44900 47400 1 0 0 spice-directive-1.sym
 {
 T 45000 47700 5 10 0 1 0 0 1

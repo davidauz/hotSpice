@@ -37,15 +37,10 @@ value=1mA
 N 57000 51100 57000 52700 4
 N 52400 49000 52400 48500 4
 N 54200 48500 54200 50400 4
-N 52400 50100 52400 50900 4
-{
-T 52600 50200 5 10 1 1 0 0 1
-netname=b1
-}
 N 52400 50900 53600 50900 4
 N 54200 51400 54200 52700 4
 N 54200 52700 57000 52700 4
-T 49100 51700 9 10 1 0 0 0 9
+T 48800 51300 9 10 1 0 0 0 16
 Here we begin getting our hands dirty.
 
 This plots the characteristic curve of a transistor, 
@@ -55,6 +50,13 @@ The circuit uses the ngspice default model,
 nothing fancy.  It is possible to set up
 parameters to follow closely the characteristics
 of a real transistor.
+
+Visit the subfolders and run the RUNME.sh scripts
+there for some nice gnuplot pictures generated
+using data from this schematic.
+
+p.s. you'll see a 'ghost' saturation zone that will be 
+explained later.
 T 49300 49000 9 10 1 0 0 0 2
 This is the base current source, 
 performing swipes on a range.
@@ -101,3 +103,4 @@ L 54600 50200 54500 50100 3 0 0 0 -1 -1
 L 54600 50000 54500 50100 3 0 0 0 -1 -1
 T 55300 51400 9 10 1 0 0 0 1
 VCE
+N 52400 50200 52400 50900 4

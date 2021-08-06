@@ -51,13 +51,13 @@ N 60700 47500 60800 48000 4
 T 60700 48100 5 10 1 1 0 0 1
 netname=v1p
 }
-C 54300 46900 1 0 0 spice-directive-1.sym
+C 54200 49100 1 0 0 spice-directive-1.sym
 {
-T 54400 47200 5 10 0 1 0 0 1
+T 54300 49400 5 10 0 1 0 0 1
 device=directive
-T 54400 47300 5 10 1 1 0 0 1
+T 54300 49500 5 10 1 1 0 0 1
 refdes=A1
-T 54300 44700 5 10 1 1 0 0 11
+T 54200 46900 5 10 1 1 0 0 11
 value=.options savecurrents
 .control
 save all @s1[i] @r1[i]
@@ -121,9 +121,9 @@ value=150
 }
 N 66100 47400 66300 47400 4
 N 66300 45200 66300 44900 4
-N 62900 46800 63000 47300 4
+N 62900 46800 63100 47200 4
 {
-T 62900 47400 5 10 1 1 0 0 1
+T 63100 47300 5 10 1 1 0 0 1
 netname=v1o
 }
 N 64200 47500 64300 48000 4
@@ -131,9 +131,9 @@ N 64200 47500 64300 48000 4
 T 64200 48100 5 10 1 1 0 0 1
 netname=v2p
 }
-N 66300 46800 66400 47300 4
+N 66300 46800 66500 47200 4
 {
-T 66300 47400 5 10 1 1 0 0 1
+T 66500 47300 5 10 1 1 0 0 1
 netname=v2o
 }
 N 59500 48700 66300 48700 4
@@ -146,3 +146,8 @@ S2 has only model-name but no parameters.
 The resulting netlist has one model and two switches sharing it as true good friends do.
 T 54200 50100 9 20 1 0 0 0 1
 Two ngspice SWITCHes
+T 54900 43800 9 10 1 0 0 0 4
+This SPICE directive plots the voltage at branches v1o and v2o.
+Those voltages go up and down according to the configuration of the switch elements.
+ngspice switches are kinda programmable, you'll have to look
+at the docs to understand how it works.

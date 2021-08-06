@@ -55,7 +55,7 @@ T 49200 66800 5 10 0 1 0 0 1
 device=directive
 T 49200 66900 5 10 1 1 0 0 1
 refdes=A1
-T 49100 64200 5 10 1 1 0 0 12
+T 49100 64800 5 10 1 1 0 0 9
 value=.control
 * ac analysis
 * ac ( DEC | OCT | LIN ) N Fstart Fstop
@@ -64,8 +64,5 @@ set color0=rgb:f/f/f
 set color1=rgb:0/0/0
 set curplottitle="voltages"
 plot vout
-echo "*******************************************************"
-echo "* Exit ngspice by pressing Ctrl+D or by typing 'exit' *"
-echo "*******************************************************"
 .endc
 }

@@ -102,7 +102,7 @@ N 59500 57400 58800 57800 4
 T 58500 57900 5 10 1 1 0 0 1
 netname=o1
 }
-T 60100 61100 9 12 1 0 0 0 8
+T 59000 61400 9 12 1 0 0 0 8
 Let's say that the base of Q1 is positive and Q1 conducts.
 Current flows through R1 and R4 (through C1), down into the collector of Q1;
 While C1 is charging, it builds up a positive voltage on the base of Q2.
@@ -110,7 +110,7 @@ This voltage reaches a point when the base voltage for Q2 is enough for Q2 to st
 When this happens, the current flowing through its collector lowers the voltage on the base of Q1.
 Q1 does not conduct anymore, and the cycle starts all the same from Q2 conducting.
 
-This example also uses gnuplot for a 3D fence plot for better understanding.
+To see a pretty picture, use the RUNME.sh script.
 C 65500 57200 1 0 0 spice-directive-1.sym
 {
 T 65600 57500 5 10 0 1 0 0 1

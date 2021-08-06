@@ -157,10 +157,11 @@ N 58000 54000 57900 53600 4
 T 58000 54100 5 10 1 1 0 0 1
 netname=q1b
 }
-T 55300 56700 9 14 1 0 0 0 3
+T 55300 56700 9 14 1 0 0 0 4
 This is not much an example.  It is a reminder of the necessity of giving
 different names to models when there are different transistors in a circuit.
-I.e. how not to waste whole days puzzling on something super simple that doesn't work.
+I.e. how not to waste whole days puzzling on something super simple that 
+apparently just refuses to work.
 T 52500 51100 9 10 1 0 0 0 2
 In the plot some of the values are plotted adding some
 constant valule just to make them easier to see.
@@ -173,7 +174,7 @@ refdes=A1
 T 64900 51800 5 10 1 1 0 0 15
 value=.options savecurrents
 .control
-save all @q1[ic] @q1[ib] @q2[ic] @q2[ib] @q1[vbe] @q2[vbe]
+save all
 tran 1ms 1s
 run
 set color0=rgb:f/f/f

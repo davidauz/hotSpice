@@ -121,7 +121,7 @@ Vb > Vc (because their difference, shown as color in the
                 heatmap, is positive).
 
 SCORE!  Just keep clear from the blank region in the heatmap 
-and your BJT is saturated.  
+and you'll have a guaranteed saturated BJT.
 C 62800 54400 1 0 0 spice-directive-1.sym
 {
 T 62900 54700 5 10 0 1 0 0 1

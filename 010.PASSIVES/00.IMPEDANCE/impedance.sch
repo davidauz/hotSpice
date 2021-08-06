@@ -77,3 +77,4 @@ Y = 1/Z = G + iB [S = Siemens or MHO (inverse of OHM)]
 Y = ADMITTANCE [S]
 G = CONDUCTANCE [S]
 B = SUSCEPTANCE [S]
+B 8000 77100 10000 8600 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1

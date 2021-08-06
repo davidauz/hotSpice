@@ -68,7 +68,7 @@ T 40200 70100 5 10 0 1 0 0 1
 device=directive
 T 40200 70200 5 10 1 1 0 0 1
 refdes=A1
-T 40100 64500 5 10 1 1 0 0 27
+T 40100 65100 5 10 1 1 0 0 24
 value=.options savecurrents
 .control
 save @d1[id]
@@ -92,8 +92,5 @@ dc vsignal -10 3 0.01
 set curplottitle="Zener"
 plot @d1[id]
 
-echo "*******************************************************"
-echo "* Exit ngspice by pressing Ctrl+D or by typing 'exit' *"
-echo "*******************************************************"
 .endc
 }

@@ -99,7 +99,7 @@ tran 0.01ms 400ms
 set color0=rgb:f/f/f
 set color1=rgb:0/0/0
 set curplottitle="Full wave rectifier"
-plot vout
+plot vin vout
 echo "*******************************************************"
 echo "* Exit ngspice by pressing Ctrl+D or by typing 'exit' *"
 echo "*******************************************************"
