@@ -1,0 +1,144 @@
+buono: http://www.netzener.net/index.php/10-project-articles/12-built-this-8-transistor-stereo-amplifier
+
+[[https://www.electroschematics.com/diy-operational-amplifier/]]
+
+DIY Op Amp Schematic
+
+The recommended power source is a split power supply (±6 to ±15V). Dispelling one common misconception, note that the ± power supplies need not be equal in voltage. If unequal, the maximum output voltage swings cannot be equal in both polarities.
+
+With appropriate biasing and capacitor coupling techniques, it may also be used with a single supply, but this aspect is not discussed here.
+
+Q1 & Q2 make up a differential amplifier – the differential amplifier is the foundation of the op amp, offering both inverting and non-inverting inputs so it may be used in a myriad of applications. Using matched transistors, the input voltages are closely matched – this is called the input offset voltage. For reference, recall that a single transistor amplifier has an input voltage of about 650mV. However, in a differential amplifier, the 650mV offsets balance each other so that the difference is generally below 10mV.
+
+Another important parameter is input bias current – it is always the object to keep this as low as possible – in this circuit, it runs at about 100nA. Ideally, the input bias currents are equal, but if not the difference is referred to as input offset current. Generally this parameter is disregarded except in high impedance or very high accuracy circuits.
+
+
+A differential amplifier requires a current source – this may be either a fixed resistor to a negative supply or a current source as in this case. The fixed resistor is effective if the negative supply is always the same and/or if it is applied as an inverting amplifier where the input nodes are at zero volts. The current source accommodates variations in power supply voltage selection as well as a wide common-mode voltage range that is required for non-inverting amplifiers.
+
+The current source consists of a voltage reference consisting of R1, D1 & D2. With the base of Q3 running at 1.2V, the emitter of Q3 operates at about 500mV off the negative rail. Since the voltage across R3 is now fixed and the collector current is essentially equal to the emitter current, the collector current is no longer a function of the input voltage. This is the basic operation of the current source.
+
+The current source is split by the differential amplifier so that the collector currents of Q1 & Q2 are equal.
+
+Adjusting the input offset voltage
+
+A good place to start is by matching the Vbe and hFE characteristics of Q1 & Q2. Beyond this, the values of R2 & R3 are critical. Either of these may be adjusted to null input offset voltage – I varied R3.
+
+Obtaining an output from the differential amplifier
+
+R2 is sized so that its voltage drop is 650mV – the same as the Vbe threshold of Q4 that is configured as a common emitter transistor amplifier.
+
+Increasing the gain and output voltage swing of Q4
+
+Rather than the usual load resistor, the collector of Q4 operates into another current source (Q5). This offers the advantage of superior drive of the output transistors as the output voltage approaches the negative rail. It also increases the voltage gain of this stage significantly because a current source has a high dynamic resistance and voltage gain of a transistor is a function of the load resistance.
+
+Output stage
+
+Q6 & Q7 make up a complementary symmetry output stage. This is in effect a glorified emitter follower that operates in either the positive or negative polarities. The two transistor base terminals are biased via two silicon diodes. Since the diodes limit the base voltage to a point just below the transistor Vbe threshold, there is no quiescent output stage current. This is also called a zero bias configuration because both transistors are normally off. The drawback is that it is subject to potential crossover distortion – I could not detect any. Crossover distortion occurs when the output current switches from the top transistor to the bottom transistor. Some monolithic (IC) op amps like the LM358 and LM324 have the same problem. Other op amps solve this problem by adding a resistor in series with the two bias diodes – this also requires emitter resistance which tends to complicate the circuit. Crossover distortion is most apparent at low signal levels where the op amp spends all its time switching transistors.
+
+Frequency compensation
+
+C1 provides frequency compensation in order to reduce the gain at high frequencies where it may be subject to oscillation (instability). Without compensation, mine oscillated at 2mHZ.
+
+Shortcomings
+
+While there are no perfect op amps, some monolithic devices are very, very good. This circuit has some real shortcomings as follows:
+
+    No provision for thermal stability – operate at room temperature only
+    Relatively high input offset voltage, but can be nulled
+    Lack of output overcurrent protection
+    Limited open loop voltage gain – the open loop voltage gain of a monolithic device is at least an order of magnitude higher.
+    Potentially high crossover distortion
+
+Suggested exercises for the experimenter
+
+    Measure quiescent power supply current – very easy
+    Null input offset voltage – set up with a voltage gain of 100, ground input and adjust R2 or R3 so that the output voltage is zero
+    Observe thermal stability – after the input offset voltage has been nulled, blow hot air on the circuit and watch the output voltage shift (use hair dryer)
+    Measure input bias current – add 100K resistor in series with input terminals, measure voltage drop across resistor, then calculate current
+    Plot frequency response at 1VAC output and at full output voltage
+    Measure open loop gain – set up as an inverting amplifier – with full output voltage, measure input node voltage – divide AC output voltage by AC input node voltage (note, this cannot be done with a monolithic op amp due to itsextremely high open loop gain).
+    Determine maximum slew rate in both polarities (positive going and negative going)
+    Using oscilloscope, see how well it amplifies a sine wave.
+    Perhaps you can experiment upon and improve upon this relatively crude circuit
+
+Oscillographs
+Sine Wave Output
+
+Photos
+
+
+Conclusions
+I hope you learned from this exercise – now we all can better appreciate the bargain and power of monolithic op amp integrated circuits that come not only as singles, but duals and quads.
+Share this:
+
+    Tweet
+    More
+
+previousPrevious
+Solar LED Road Marker (Road Stud)
+Next
+Arduino Digital Voltmeter 0V to 30V
+next
+Related Tutorials
+
+No related posts.
+Recent posts
+
+    Vactrol – A Lazy Walk
+    Laser Virtual Floor Marker
+    Touchless Lamp
+    Rainbow Flashlight
+    Touchless Sanitizer Dispenser
+
+9 Comments
+Join the conversation!
+
+You must be logged in to post a comment.
+
+    Thanh
+
+    Hello Jim Keith,
+
+    Could we replace the current source with fixed resistor ? If yes, what is the value of this fixed resistor ?
+    Posted on November 05th 2014 | 12:12 pm
+    Log in to Reply
+        Jim Keith
+
+        The current source may be replaced with a 115K resistor. This assumes that the negative rail is -12V. For other voltages, R = (Vneg – 0.6V) /100uA.
+
+        Note that this generally requires that the application does not have a variable common mode input voltage range as in a simple inverting amplifier. Simply, inverting amp is OK, non-inverting amp NOT OK unless voltage gain >100.
+        Posted on November 05th 2014 | 1:13 pm
+    Electronicsnewbie
+
+    I am in my second year of Electronics Engineering course by the way.
+    Posted on May 25th 2014 | 9:57 pm
+    Log in to Reply
+    Electronicsnewbie
+
+    Excuse me if I sound very inexperienced because I actually am. I am using proteus 8.0 ISIS to simulate this circuit and understand the basic building blocks of op amp design. I tried testing it out in several ways and when I was trying out it’s open loop gain,I was faced with some weird results. Whenever I try using the inverting terminal I get a non-inverted signal and when I try using the non-inverting terminal I seem to get an inverted signal. I double and triple and quadruple checked the layout and I didn’t find any copying mistakes except having to use BC547 instead of BC547C and BC557 instead of BC557C because the program didn’t have them . Can someone please explain to me what I did wrong?
+    Posted on May 25th 2014 | 9:55 pm
+    Log in to Reply
+        Electronicsnewbie
+
+        Thank YOU for replying!
+        Posted on June 04th 2014 | 11:13 pm
+        Jim Keith
+
+        Your simulation is correct, but there is a typo on the schematic –I labeled the “+” input as inverting and the “-” as non-inverting –they should be swapped. My mistake –my apology. Thank you for finding this.
+        Posted on May 26th 2014 | 7:42 am
+    krokkenoster
+
+    The Hi Fi power amps are just huge op amps! This is excellent to teach our youngsters (Not only in years I mean beginners) how power amplifiers really work only the differences are transistor sizes and power levels!
+    Posted on May 20th 2014 | 3:48 pm
+    Log in to Reply
+    yunush
+
+    very good for my electoniks nolege
+    Posted on December 08th 2013 | 4:56 pm
+    Log in to Reply
+    Jim Keith
+
+    Woops–first typo–I actually varied R3 (not R2) to null the input offset voltage–was able to get it below 1mV.
+    Posted on December 07th 2013 | 1:26 pm
+    Log in to Reply
+
