@@ -136,12 +136,11 @@ refdes=X1
 T 44500 65500 5 10 1 0 0 0 1
 graphical=1
 }
-T 42200 68200 9 10 1 0 0 0 5
+T 42200 68200 9 10 1 0 0 0 4
 Should we use the square wave generator from the Schmitt trigger example?
 Also problem: cannot change the impulse width alone independently from the 
 frequency.
-Solution: use the sawtooth wave generator with a voltage comparator.  
-The one from the differential amplifier example will do.
+Solution: use the sawtooth wave generator with a voltage comparator.
 C 43600 64700 1 90 0 pot-bourns.sym
 {
 T 42700 65500 5 10 0 0 90 0 1
