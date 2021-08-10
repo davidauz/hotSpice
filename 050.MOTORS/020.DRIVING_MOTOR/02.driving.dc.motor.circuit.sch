@@ -127,15 +127,6 @@ First thing that comes to mind is to use our old friend the astable oscillator.
 Problems: the output waveform is weird, and there is no way to control the 
 pulse width without screwing the frequency too.
 Of course it can be used but is isn't very efficient.
-C 44500 65500 1 0 0 voltage-comparator.sym
-{
-T 46200 66350 5 10 0 0 0 0 1
-device=V_COMPARATOR
-T 44800 66400 5 10 1 1 0 0 1
-refdes=X1
-T 44500 65500 5 10 1 0 0 0 1
-graphical=1
-}
 T 42200 68200 9 10 1 0 0 0 4
 Should we use the square wave generator from the Schmitt trigger example?
 Also problem: cannot change the impulse width alone independently from the 
@@ -178,12 +169,25 @@ N 44500 66200 44300 66500 4
 T 44200 66600 5 10 1 1 0 0 1
 netname=in
 }
-N 45600 66000 45800 66300 4
+N 45700 66000 45900 66300 4
 {
-T 45700 66400 5 10 1 1 0 0 1
+T 45800 66400 5 10 1 1 0 0 1
 netname=out
 }
 B 42000 62800 6800 6500 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
 T 42800 65700 9 10 1 0 0 0 2
 reference
 voltage
+C 44500 65500 1 0 0 voltage-comparator.sym
+{
+T 46200 66350 5 10 0 0 0 0 1
+device=V_COMPARATOR
+T 45500 65800 5 10 1 1 0 0 1
+device=voltage_comparator
+T 44800 66400 5 10 1 1 0 0 1
+refdes=X1
+T 44500 65300 5 10 0 0 0 0 1
+graphical=1
+}
+C 45000 66400 1 0 0 vcc-1.sym
+C 45100 65300 1 0 0 gnd-1.sym
