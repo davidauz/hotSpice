@@ -40,23 +40,24 @@ N 54200 48500 54200 50400 4
 N 52400 50900 53600 50900 4
 N 54200 51400 54200 52700 4
 N 54200 52700 57000 52700 4
-T 48800 51300 9 10 1 0 0 0 16
+T 48800 51300 9 10 1 0 0 0 17
 Here we begin getting our hands dirty.
 
 This plots the characteristic curve of a transistor, 
 as it is seen everywhere.  
 
-The circuit uses the ngspice default model,
-nothing fancy.  It is possible to set up
-parameters to follow closely the characteristics
-of a real transistor.
+The first plot uses the ngspice default model,
+that is an ideal transistor.
+
+The directive then alters the model vaf parameter 
+to introduce the Early effect showed in the second plot.
 
 Visit the subfolders and run the RUNME.sh scripts
 there for some nice gnuplot pictures generated
 using data from this schematic.
 
-p.s. you'll see a 'ghost' saturation zone that will be 
-explained later.
+p.s. in the gnuplot picture you'll see the 'ghost' saturation 
+zone that will be explained later.
 T 49300 49000 9 10 1 0 0 0 2
 This is the base current source, 
 performing swipes on a range.
@@ -67,13 +68,13 @@ T 54000 47200 9 10 1 0 0 0 3
 The plot has vce on the X axis and the 
 resulting collector current on the Y, one
 line for every step of the ib swipe.
-C 57600 53900 1 0 0 spice-directive-1.sym
+C 57500 54400 1 0 0 spice-directive-1.sym
 {
-T 57700 54200 5 10 0 1 0 0 1
+T 57600 54700 5 10 0 1 0 0 1
 device=directive
-T 57700 54300 5 10 1 1 0 0 1
+T 57600 54800 5 10 1 1 0 0 1
 refdes=A1
-T 57600 51700 5 10 1 1 0 0 12
+T 57500 51200 5 10 1 1 0 0 17
 value=.options savecurrents
 .print DC @q1[ib] @q1[ic]
 .control
@@ -81,6 +82,11 @@ save all @q1[ib] @q1[ic]
 dc vce -0.05 1v 0.01 ib 0 1.5ma 0.1ma
 set color0=rgb:f/f/f
 set color1=rgb:0/0/0
+set curplottitle="Ideal transistor"
+plot @q1[ic]
+altermod  q1 vaf = 10
+dc vce -0.05 1v 0.01 ib 0 1.5ma 0.1ma
+set curplottitle="Early effect"
 plot @q1[ic]
 echo "*******************************************************"
 echo "* Exit ngspice by pressing Ctrl+D or by typing 'exit' *"

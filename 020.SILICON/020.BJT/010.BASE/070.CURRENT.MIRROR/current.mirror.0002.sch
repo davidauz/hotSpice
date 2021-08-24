@@ -158,16 +158,19 @@ N 53200 44600 53700 44900 4
 T 53700 44700 5 10 1 1 0 0 1
 netname=Vd
 }
-T 55100 47800 9 10 1 0 0 0 9
+T 55100 47800 9 10 1 0 0 0 12
 On the left there is a transistor connected in order to use the BE junction only, making it work as a plain diode.
 The Vd voltage is the diode drop of the BE junction.
 Now what happens if we apply this voltage to the base of another transistor?
 Provided that the two transistors are equal, the current flowing through their bases wil be the exact same value.
 N.B. this is the reason why Q1, Q2, Q4 and Q6 are connected in this weird way: to make sure that the BE junction 
-is the same everywhere.  If it was a diode instead, there would be no way to make sure of that.
+is the same as the one in Q3, Q5, Q7.
+If for example Q2 was a diode instead, there would be no way to make sure of the voltage drop being 
+the same as that in Q3.
 Same base current means same collector current, so here we are.
 The current flowing through R2 will be closely mirrored in R3.
-In the example the script changes the value for R2 and R3, showing that the current flowing through the two is (almost) the same.
+In the example the script changes the value for R2 and R3, showing that the current flowing through the two is
+(almost) the same.
 N 55500 43800 56400 43800 4
 N 56400 43800 57300 44600 4
 N 58100 43800 57300 44600 4

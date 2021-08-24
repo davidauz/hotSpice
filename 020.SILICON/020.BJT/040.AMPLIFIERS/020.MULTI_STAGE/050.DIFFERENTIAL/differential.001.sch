@@ -207,7 +207,7 @@ T 39700 62000 5 10 1 1 0 0 8
 value=.options savecurrents
 .control
 save all
-tran 50us 2ms
+tran 20us 2ms
 set color0=rgb:f/f/f
 set color1=rgb:0/0/0
 .endc
@@ -744,6 +744,216 @@ output
 T 63400 62300 9 10 1 0 0 0 2
 inverted
 output
-T 61300 57700 9 10 1 0 0 0 2
+T 55700 55700 9 10 1 0 0 0 4
 This is the "single input" configuration:
-Q2b base is at ground
+Q2b base is at ground, but since Vee is 
+much more negative, current flows 
+all the same
+N 60700 58900 60500 58600 4
+{
+T 60300 58800 5 10 1 1 0 0 1
+netname=Vmvd
+}
+N 59700 60200 59300 60000 4
+{
+T 59800 60200 5 10 1 1 0 0 1
+netname=Vq1be
+}
+N 61200 60300 61600 60000 4
+{
+T 60800 60100 5 10 1 1 0 0 1
+netname=Vq2be
+}
+C 59200 53500 1 270 0 resistor-2.sym
+{
+T 59550 53100 5 10 0 0 270 0 1
+device=RESISTOR
+T 59500 53000 5 10 1 1 0 0 1
+value=10k
+T 59500 53200 5 10 1 1 0 0 1
+refdes=Rc1g
+}
+N 59300 51600 59300 52600 4
+N 59300 53500 59300 53700 4
+N 58400 51100 58700 51100 4
+C 58700 50600 1 0 0 npn-3.sym
+{
+T 59600 51100 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 58700 50600 5 10 0 1 0 0 1
+model-name=genericNPN
+T 58700 50600 5 10 0 0 0 0 1
+model=npn
+T 59200 51000 5 10 1 1 0 0 1
+refdes=Q1g
+}
+B 55700 47100 8800 8300 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
+C 63200 52000 1 270 0 resistor-2.sym
+{
+T 63550 51600 5 10 0 0 270 0 1
+device=RESISTOR
+T 63500 51300 5 10 1 1 0 0 1
+value=100k
+T 63500 51500 5 10 1 1 0 0 1
+refdes=RLg
+}
+N 63300 52000 63300 52200 4
+N 63300 52200 62900 52200 4
+C 62000 52000 1 0 0 capacitor-1.sym
+{
+T 62200 52700 5 10 0 0 0 0 1
+device=CAPACITOR
+T 62200 52900 5 10 0 0 0 0 1
+symversion=0.1
+T 62300 52500 5 10 1 1 0 0 1
+refdes=C1b
+T 62300 51800 5 10 1 1 0 0 1
+value=1m
+}
+C 61500 53500 1 270 0 resistor-2.sym
+{
+T 61850 53100 5 10 0 0 270 0 1
+device=RESISTOR
+T 61800 53000 5 10 1 1 0 0 1
+value=10k
+T 61800 53200 5 10 1 1 0 0 1
+refdes=Rc2g
+}
+N 61600 51600 61600 52600 4
+N 61600 53500 61600 53700 4
+C 62200 50600 1 0 1 npn-3.sym
+{
+T 61300 51100 5 10 0 0 0 6 1
+device=NPN_TRANSISTOR
+T 62200 50600 5 10 0 1 0 6 1
+model-name=genericNPN
+T 62200 50600 5 10 0 0 0 6 1
+model=npn
+T 61700 51000 5 10 1 1 0 6 1
+refdes=Q2g
+}
+N 62000 52200 61600 52200 4
+C 60700 48100 1 180 0 vee-1.sym
+{
+T 60700 48100 5 10 0 0 0 0 1
+netname=vee
+}
+C 60400 49000 1 270 0 resistor-2.sym
+{
+T 60750 48600 5 10 0 0 270 0 1
+device=RESISTOR
+T 60700 48400 5 10 1 1 0 0 1
+value=5k
+T 60700 48600 5 10 1 1 0 0 1
+refdes=REg
+}
+N 59300 49000 61600 49000 4
+C 60200 53700 1 0 0 vcc-1.sym
+{
+T 60300 54100 5 10 0 1 0 0 1
+netname=vcc
+}
+N 59300 53700 61600 53700 4
+N 63300 52200 63900 52400 4
+{
+T 63900 52400 5 10 1 1 0 0 1
+netname=Voig
+}
+N 62200 51100 63300 51100 4
+C 63200 50400 1 0 0 gnd-1.sym
+{
+T 63100 50400 5 10 1 1 0 0 1
+netname=0
+}
+N 63300 50700 63300 51100 4
+C 57900 52000 1 0 0 capacitor-1.sym
+{
+T 58100 52700 5 10 0 0 0 0 1
+device=CAPACITOR
+T 58100 52900 5 10 0 0 0 0 1
+symversion=0.1
+T 58200 52500 5 10 1 1 0 0 1
+refdes=C2g
+T 58200 51800 5 10 1 1 0 0 1
+value=1m
+}
+N 58800 52200 59300 52200 4
+N 56800 52200 56400 52400 4
+{
+T 56400 52400 5 10 1 1 0 0 1
+netname=Vog
+}
+C 57300 52200 1 270 0 resistor-2.sym
+{
+T 57650 51800 5 10 0 0 270 0 1
+device=RESISTOR
+T 57600 51500 5 10 1 1 0 0 1
+value=100k
+T 57600 51700 5 10 1 1 0 0 1
+refdes=RLg1
+}
+C 57300 51000 1 0 0 gnd-1.sym
+{
+T 57200 51000 5 10 1 1 0 0 1
+netname=0
+}
+N 56800 52200 57900 52200 4
+C 59200 50300 1 270 0 resistor-2.sym
+{
+T 59550 49900 5 10 0 0 270 0 1
+device=RESISTOR
+T 59500 49800 5 10 1 1 0 0 1
+value=100
+T 59500 50000 5 10 1 1 0 0 1
+refdes=Re1g
+}
+N 59300 50300 59300 50600 4
+N 59300 49400 59300 49000 4
+C 61500 50300 1 270 0 resistor-2.sym
+{
+T 61850 49900 5 10 0 0 270 0 1
+device=RESISTOR
+T 61800 49800 5 10 1 1 0 0 1
+value=100
+T 61800 50000 5 10 1 1 0 0 1
+refdes=Re2g
+}
+N 61600 50300 61600 50600 4
+N 61600 49400 61600 49000 4
+N 60700 49300 60500 49000 4
+{
+T 60300 49200 5 10 1 1 0 0 1
+netname=Vmvdg
+}
+N 59700 50600 59300 50400 4
+{
+T 59800 50600 5 10 1 1 0 0 1
+netname=Vq1bg
+}
+N 61200 50700 61600 50400 4
+{
+T 60800 50500 5 10 1 1 0 0 1
+netname=Vq2bg
+}
+T 55900 53700 9 10 1 0 0 0 8
+Two common emitters conjoined make a basic differential amplifier.
+There is no need to bias the base of the transistors because even when Vp 
+is zero, it still is way more positive than Vee.
+For the same reason the C1a capacitor is gone too: there is no DC component
+to filter.
+Check out the improved gain:
+
+plot vp vob viob
+T 63100 54800 9 20 1 0 0 0 1
+Step Ⓑ
+T 56200 52700 9 10 1 0 0 0 2
+non inverted
+output
+T 63400 52700 9 10 1 0 0 0 2
+inverted
+output
+C 58300 50800 1 0 0 gnd-1.sym
+{
+T 58200 50800 5 10 1 1 0 0 1
+netname=0
+}

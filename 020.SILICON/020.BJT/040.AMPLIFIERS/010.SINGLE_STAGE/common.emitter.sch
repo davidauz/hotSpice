@@ -23,8 +23,8 @@ refdes=V1
 T 60300 50700 5 10 1 1 0 0 1
 value=DC 5V
 }
-T 55900 51600 9 10 1 0 0 0 6
-Common Emitter or EDmitter Follower:
+T 51400 51500 9 10 1 0 0 0 6
+Common Emitter or Emitter Follower:
  - high input impedance
  - lower output impedance
  - high voltage gain
