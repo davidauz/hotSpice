@@ -172,11 +172,6 @@ value=1m
 N 55400 59700 56300 59700 4
 N 57200 59700 58000 59700 4
 N 58000 59700 59500 59700 4
-N 58600 59700 59100 60200 4
-{
-T 58900 59700 5 10 1 1 0 0 1
-netname=Vb
-}
 C 60000 58800 1 270 0 resistor-2.sym
 {
 T 60350 58400 5 10 0 0 270 0 1
@@ -189,200 +184,269 @@ refdes=R4
 N 60100 58800 60100 59200 4
 N 60100 57900 60100 57500 4
 B 53700 56800 9300 6700 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
-T 53800 53600 9 10 1 0 0 0 16
-R1 and R2 act as a voltage divider to bring the base voltage up from ground to the
-operating voltage of the BE junction.v
-This together with the power voltage determines the ratio of R1 and R2.
-
-
-This plus the signal is the base voltage, determining the current through the BE junction via R4.
-
-The transistor's job is to let go 100 times that current through the collector, so we have
-to think about how much current we want through the base.
-
-This tells us the values of R1 (and consequently of R2 since we know theirs ratio)
-and R4.
-
-   ey also determine the base current in 
-absence of a signal and how up in their Y axis will be Vb and @q1[ib] on their plots.
-So if my signal is 10mA and I want it amplified to 
-T 63500 56300 9 10 1 0 0 0 8
-Suppose we want 1.2 v on the base, this gives
-
-Vb=1.2=Vcc*R2/(R1+R2)=9*R2/(R1+R2)
-
-1.2=9*R2/(R1+R2)
-R2/(R1+R2)=1.3333333
-R2/R1= 1.33333 -1
-R1=R2/0.333333
-L 59600 56100 63400 56700 3 0 0 0 -1 -1
-T 63500 53900 9 10 1 0 0 0 7
-Suppose we want 100mA through the base.
-We know there are 1.2v, there will be a voltage drop of 0.7v
-so it's 1.2-0.7=0.56v
-
-v=R*I
-R=v/I=0.5/0.1=5
-
-L 61400 55700 63300 55200 3 0 0 0 -1 -1
-C 59500 48700 1 0 0 npn-3.sym
+C 61100 51400 1 0 0 npn-3.sym
 {
-T 60400 49200 5 10 0 0 0 0 1
+T 62000 51900 5 10 0 0 0 0 1
 device=NPN_TRANSISTOR
-T 59500 48700 5 10 0 1 0 0 1
+T 61100 51400 5 10 0 1 0 0 1
 model-name=genericNPN
-T 59500 48700 5 10 0 0 0 0 1
+T 61100 51400 5 10 0 0 0 0 1
 model=npn
-T 60000 49100 5 10 1 1 0 0 1
+T 61600 51800 5 10 1 1 0 0 1
 refdes=Q1a
 }
-C 57900 51000 1 270 0 resistor-2.sym
+C 59600 53700 1 270 0 resistor-2.sym
 {
-T 58250 50600 5 10 0 0 270 0 1
+T 59950 53300 5 10 0 0 270 0 1
 device=RESISTOR
-T 57500 50500 5 10 1 1 0 0 1
-value=80k
-T 58200 50500 5 10 1 1 0 0 1
-refdes=R1a
+T 59900 53200 5 10 1 1 0 0 1
+refdes=R1
 }
-C 57900 48400 1 270 0 resistor-2.sym
+C 59600 51100 1 270 0 resistor-2.sym
 {
-T 58250 48000 5 10 0 0 270 0 1
+T 59950 50700 5 10 0 0 270 0 1
 device=RESISTOR
-T 57500 47900 5 10 1 1 0 0 1
-value=10k
-T 58200 47900 5 10 1 1 0 0 1
-refdes=R2a
+T 59900 50600 5 10 1 1 0 0 1
+refdes=R2
 }
-N 58000 51000 58000 51800 4
-N 58000 47500 58000 47000 4
-N 58000 47000 60100 47000 4
-N 60100 49700 60100 50100 4
-N 58000 48400 58000 50100 4
-C 59100 46700 1 0 0 gnd-1.sym
+C 61600 53700 1 270 0 resistor-2.sym
 {
-T 59000 46700 5 10 1 1 0 0 1
+T 61950 53300 5 10 0 0 270 0 1
+device=RESISTOR
+T 61900 53200 5 10 1 1 0 0 1
+refdes=RC
+}
+N 61700 53700 61700 54100 4
+N 59700 54100 61700 54100 4
+N 59700 54100 59700 53700 4
+N 59700 50200 59700 49700 4
+N 59700 49700 61700 49700 4
+N 61700 52400 61700 52800 4
+N 59700 51100 59700 52800 4
+C 60200 49400 1 0 0 gnd-1.sym
+{
+T 60100 49400 5 10 1 1 0 0 1
 netname=0
 }
-N 58000 49200 59500 49200 4
-N 58600 49200 59100 49700 4
+C 60100 54100 1 0 0 vcc-1.sym
 {
-T 58600 49600 5 10 1 1 0 0 1
-netname=Vba
-}
-C 60000 48300 1 270 0 resistor-2.sym
-{
-T 60350 47900 5 10 0 0 270 0 1
-device=RESISTOR
-T 59600 47800 5 10 1 1 0 0 1
-value=1k
-T 60300 47800 5 10 1 1 0 0 1
-refdes=R4a
-}
-N 60100 48300 60100 48700 4
-N 60100 47400 60100 47000 4
-B 53700 46300 9300 6700 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
-N 60100 50100 59300 50100 4
-N 59300 50100 59300 49200 4
-C 57800 51800 1 0 0 vcc-1.sym
-{
-T 57900 52200 5 10 0 1 0 0 1
+T 60200 54500 5 10 0 1 0 0 1
 netname=vcc
 }
-C 65500 51800 1 270 0 resistor-2.sym
+N 59700 51900 61100 51900 4
+N 59700 51900 59400 52200 4
 {
-T 65850 51400 5 10 0 0 270 0 1
-device=RESISTOR
-T 65100 51300 5 10 1 1 0 0 1
-value=80k
-T 65800 51300 5 10 1 1 0 0 1
-refdes=R1b
+T 59100 52200 5 10 1 1 0 0 1
+netname=VB
 }
-C 65500 49200 1 270 0 resistor-2.sym
+C 61600 51000 1 270 0 resistor-2.sym
 {
-T 65850 48800 5 10 0 0 270 0 1
+T 61950 50600 5 10 0 0 270 0 1
 device=RESISTOR
-T 65100 48700 5 10 1 1 0 0 1
-value=10k
-T 65800 48700 5 10 1 1 0 0 1
-refdes=R2b
+T 61900 50500 5 10 1 1 0 0 1
+refdes=RE
 }
-C 65400 52600 1 0 0 vcc-1.sym
+N 61700 51000 61700 51400 4
+N 61700 50100 61700 49700 4
+B 53700 49300 9300 6700 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
+T 53800 55400 9 10 1 0 0 0 3
+The reasoning is that VE≈IC*RE (since IC≈IE)
+VB=VE+VBE=IC*RE+VBE
+where VBE is the diode drop of the BE junction.
+N 61700 51200 62100 51200 4
 {
-T 65500 53000 5 10 0 1 0 0 1
+T 62100 51200 5 10 1 1 0 0 1
+netname=VE
+}
+A 61500 51800 500 180 90 3 0 0 0 -1 -1
+T 60800 51300 9 10 1 0 0 0 1
+VBE
+T 53800 54700 9 10 1 0 0 0 3
+Now usually VB is fixed, this mean that IE and IC could be 
+derived from RE indipendently of β and IB.
+
+T 53800 54600 9 10 1 0 0 0 1
+Suppose that VB is 2V, that is a pretty standard value for it.
+N 61700 52600 61400 52900 4
+{
+T 61100 52900 5 10 1 1 0 0 1
+netname=VC
+}
+A 61600 51900 500 292 133 3 0 0 0 -1 -1
+T 62100 51800 9 10 1 0 0 0 1
+VCE
+T 53900 53000 9 10 1 0 0 0 7
+Some of the relationships between values:
+1) VC = Vcc-RC*IC = VE+VCE
+2) VE = IE*RE = VB-VBE
+3) VCE = VC-VE = VCC-(IC*RC+IE*RE)
+4) VB = VBE + VE  = R2/(R1+R2)*Vcc  (voltage divider)
+5) I2 = VB / R2
+6) I1 = IB+I2 = (Vcc - VB)/R1
+L 59500 50900 59500 50200 3 0 0 0 -1 -1
+L 59400 50300 59500 50200 3 0 0 0 -1 -1
+L 59500 50200 59600 50300 3 0 0 0 -1 -1
+T 59300 50600 9 10 1 0 0 0 1
+I2
+L 60200 52000 60900 52000 3 0 0 0 -1 -1
+L 60800 51900 60900 52000 3 0 0 0 -1 -1
+L 60900 52000 60800 52100 3 0 0 0 -1 -1
+T 60400 52100 9 10 1 0 0 0 1
+IB
+L 59500 53500 59500 52800 3 0 0 0 -1 -1
+L 59400 52900 59500 52800 3 0 0 0 -1 -1
+L 59500 52800 59600 52900 3 0 0 0 -1 -1
+T 59300 53000 9 10 1 0 0 0 1
+I1
+T 64500 65700 9 10 1 0 0 0 5
+https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Electronics/Book%3A_Semiconductor_Devices_-_Theory_and_Application_(Fiore)/05%3A_BJT_Biasing/5.4%3A_Voltage_Divider_Bias
+
+https://www.homemade-circuits.com/voltage-divider-bias-in-bjt-circuits-more-stability-without-beta-factor/
+
+
+C 75500 58000 1 270 0 resistor-2.sym
+{
+T 75850 57600 5 10 0 0 270 0 1
+device=RESISTOR
+T 75800 57500 5 10 1 1 0 0 1
+refdes=R1
+}
+N 75600 58400 75600 58000 4
+C 75400 58400 1 0 0 vcc-1.sym
+{
+T 75500 58800 5 10 0 1 0 0 1
 netname=vcc
 }
-N 65600 51800 65600 52600 4
-N 65600 48300 65600 47800 4
-N 65600 49200 65600 50900 4
-C 65500 47500 1 0 0 gnd-1.sym
+L 75400 57800 75400 57100 3 0 0 0 -1 -1
+L 75300 57200 75400 57100 3 0 0 0 -1 -1
+L 75400 57100 75500 57200 3 0 0 0 -1 -1
+N 75600 55400 75600 57100 4
+N 75600 56200 75200 56400 4
 {
-T 65400 47500 5 10 1 1 0 0 1
+T 75000 56500 5 10 1 1 0 0 1
+netname=VTh
+}
+C 75500 55400 1 270 0 resistor-2.sym
+{
+T 75800 54900 5 10 1 1 0 0 1
+refdes=R2
+T 75850 55000 5 10 0 0 270 0 1
+device=RESISTOR
+}
+N 75600 54500 75600 54000 4
+C 75500 53700 1 0 0 gnd-1.sym
+{
+T 75400 53700 5 10 1 1 0 0 1
 netname=0
 }
-C 67100 49100 1 270 0 resistor-2.sym
+L 75400 55200 75400 54500 3 0 0 0 -1 -1
+L 75300 54600 75400 54500 3 0 0 0 -1 -1
+L 75400 54500 75500 54600 3 0 0 0 -1 -1
+T 75200 57300 9 10 1 0 0 0 1
+I1
+T 75200 54900 9 10 1 0 0 0 1
+I2
+C 80100 58400 1 270 0 resistor-2.sym
 {
-T 67450 48700 5 10 0 0 270 0 1
+T 80450 58000 5 10 0 0 270 0 1
 device=RESISTOR
-T 66700 48600 5 10 1 1 0 0 1
-value=1k
-T 67400 48600 5 10 1 1 0 0 1
-refdes=R4b
+T 80400 57900 5 10 1 1 0 0 1
+refdes=RC
 }
-N 67200 48200 67200 48000 4
-N 67200 48000 65600 48000 4
-N 67200 49100 67200 50000 4
-N 67200 50000 65600 50000 4
-N 66400 50000 67200 50200 4
+N 80200 58400 80200 58300 4
+C 80000 58300 1 0 0 vcc-1.sym
 {
-T 67000 50300 5 10 1 1 0 0 1
-netname=Vbb
-}
-C 69300 51800 1 270 0 resistor-2.sym
-{
-T 69650 51400 5 10 0 0 270 0 1
-device=RESISTOR
-T 68900 51300 5 10 1 1 0 0 1
-value=80k
-T 69600 51300 5 10 1 1 0 0 1
-refdes=R1c
-}
-C 69300 49200 1 270 0 resistor-2.sym
-{
-T 69650 48800 5 10 0 0 270 0 1
-device=RESISTOR
-T 68900 48700 5 10 1 1 0 0 1
-value=909
-T 69600 48700 5 10 1 1 0 0 1
-refdes=R2c
-}
-C 69200 52600 1 0 0 vcc-1.sym
-{
-T 69300 53000 5 10 0 1 0 0 1
+T 80100 58700 5 10 0 1 0 0 1
 netname=vcc
 }
-N 69400 51800 69400 52600 4
-N 69400 48300 69400 47800 4
-N 69400 49200 69400 50900 4
-C 69300 47500 1 0 0 gnd-1.sym
+N 80200 57100 79900 57400 4
 {
-T 69200 47500 5 10 1 1 0 0 1
+T 79600 57400 5 10 1 1 0 0 1
+netname=VC
+}
+C 79600 55900 1 0 0 npn-3.sym
+{
+T 80500 56400 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 79600 55900 5 10 0 1 0 0 1
+model-name=genericNPN
+T 79600 55900 5 10 0 0 0 0 1
+model=npn
+T 80100 56300 5 10 1 1 0 0 1
+refdes=Q1a
+}
+N 80200 56900 80200 57500 4
+N 80200 54700 80200 55900 4
+N 80200 55700 80600 55700 4
+{
+T 80600 55700 5 10 1 1 0 0 1
+netname=VE
+}
+C 80100 53300 1 0 0 gnd-1.sym
+{
+T 80000 53300 5 10 1 1 0 0 1
 netname=0
 }
-N 69400 50300 70200 50500 4
+C 80100 54700 1 270 0 resistor-2.sym
 {
-T 70000 50600 5 10 1 1 0 0 1
-netname=Vbc
+T 80450 54300 5 10 0 0 270 0 1
+device=RESISTOR
+T 80400 54200 5 10 1 1 0 0 1
+refdes=RE
 }
-N 60100 48400 60700 48700 4
+N 80200 53800 80200 53600 4
+N 77900 56400 77500 56600 4
 {
-T 60700 48500 5 10 1 1 0 0 1
-netname=Vea
+T 77300 56700 5 10 1 1 0 0 1
+netname=VTh
 }
-T 60500 50900 9 10 1 0 0 0 2
-vba-vea is the transistor 
-diode drop, around 0.7V
-A 60500 49900 900 283 234 3 0 0 0 -1 -1
-T 53900 52500 9 10 1 0 0 0 2
-Let's start from an oversimplification, and 
-examine the BE junction only
+C 77900 56300 1 0 0 resistor-2.sym
+{
+T 78300 56650 5 10 0 0 0 0 1
+device=RESISTOR
+T 78200 56100 5 10 1 1 0 0 1
+refdes=RTh
+}
+T 67400 55600 9 10 1 0 0 0 17
+Splitting the circuit into 2 parts using the Thevenin theorem we get:
+VTh = Vcc*R2/(R1+R2)
+RTh = R1||R2 = R1*R2/(R1+R2)
+VTh = VRTh + VBE +VRE
+VTh = IB*RTh + VBE +IE*RE
+we also know that
+IB=IC/β
+and
+IE≈IC
+so
+VTH=(IC/β)RTH+VBE+ICRE
+IC=(VTh−VBE)/(RE+RTh/β)
+Now the focus of the game is to find an approximation of IC.
+First thing to consider is thath R1,R2 as a voltage divider have the
+job of supplying a voltage but let's suppose that the current they 
+provide is much less than the signal.
+The base voltage brops by 0.7V on the BE junction and what's left is on RE.
+A 80100 56300 500 180 90 3 0 0 0 -1 -1
+T 79400 55800 9 10 1 0 0 0 1
+VBE
+A 78400 56200 500 38 105 3 0 0 0 -1 -1
+T 78200 56700 9 10 1 0 0 0 1
+VRTh
+A 80400 54200 500 125 105 3 0 0 0 -1 -1
+T 79500 54200 9 10 1 0 0 0 1
+VRE
+L 78900 56500 79600 56500 3 0 0 0 -1 -1
+L 79500 56400 79600 56500 3 0 0 0 -1 -1
+L 79600 56500 79500 56600 3 0 0 0 -1 -1
+T 79100 56600 9 10 1 0 0 0 1
+IB
+N 78800 56400 79600 56400 4
+L 80300 55400 80300 54700 3 0 0 0 -1 -1
+L 80200 54800 80300 54700 3 0 0 0 -1 -1
+L 80300 54700 80400 54800 3 0 0 0 -1 -1
+T 80400 54900 9 10 1 0 0 0 1
+IE
+L 80300 57600 80300 56900 3 0 0 0 -1 -1
+L 80200 57000 80300 56900 3 0 0 0 -1 -1
+L 80300 56900 80400 57000 3 0 0 0 -1 -1
+T 80400 57100 9 10 1 0 0 0 1
+IC

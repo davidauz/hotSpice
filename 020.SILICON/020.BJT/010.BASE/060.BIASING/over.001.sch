@@ -52,7 +52,7 @@ C 57900 51000 1 270 0 resistor-2.sym
 T 58250 50600 5 10 0 0 270 0 1
 device=RESISTOR
 T 57500 50500 5 10 0 1 0 0 1
-value=80k
+value=9600
 T 58200 50500 5 10 1 1 0 0 1
 refdes=R1a
 }
@@ -61,7 +61,7 @@ C 57900 48400 1 270 0 resistor-2.sym
 T 58250 48000 5 10 0 0 270 0 1
 device=RESISTOR
 T 57500 47900 5 10 0 1 0 0 1
-value=10k
+value=1k
 T 58200 47900 5 10 1 1 0 0 1
 refdes=R2a
 }
@@ -86,7 +86,7 @@ C 60000 48300 1 270 0 resistor-2.sym
 T 60350 47900 5 10 0 0 270 0 1
 device=RESISTOR
 T 59600 47800 5 10 0 1 0 0 1
-value=1k
+value=60
 T 60300 47800 5 10 1 1 0 0 1
 refdes=R4a
 }
@@ -103,29 +103,31 @@ N 60100 48300 60600 48500 4
 T 60600 48300 5 10 1 1 0 0 1
 netname=Vea
 }
-T 60500 50900 9 10 1 0 0 0 2
+T 59000 50500 9 10 1 0 0 0 2
 vba-vea is the transistor 
 diode drop, around 0.7V
 A 60400 49500 900 283 234 3 0 0 0 -1 -1
-T 53900 52000 9 10 1 0 0 0 4
+T 53900 52000 9 10 1 0 0 0 5
 The goal is to stick some values to the resistors in order to 
 get to a proper biasing of the transistor.
 Let's start from an oversimplification, and 
 examine the BE junction only.
+Let's make some assumptions: for example I want Vba to be 1V.
 N 60100 50100 61100 50100 4
 N 61100 48600 61100 50100 4
 N 60100 48600 61100 48600 4
-T 53800 45000 9 10 1 0 0 0 4
-If I want Vba to be 1V then Vea will be 0.3V.
-The current through the base will be around 1mA.
-A voltage drop of 0.7 over 1v would be given by V=R*I R=V/I=0.7/0.001=700
-So I try substituting the BE junction with a resistor of 700.
+T 53900 44800 9 10 1 0 0 0 5
+If I want Vb to be 1V then Ve will be 0.3V because of the diode drop.
+Another assumption is that the signal will swing from -1mA to +1mA.
+So the base current has to be at least 2mA; let's make it 5 mA just to be on the safe side.
+A voltage drop of 0.7 over 1v would be given by R=V/I=0.7/0.005=140
+So I try substituting the BE junction with a resistor of 140.
 C 57900 43900 1 270 0 resistor-2.sym
 {
 T 58250 43500 5 10 0 0 270 0 1
 device=RESISTOR
 T 57500 43400 5 10 0 1 0 0 1
-value=80k
+value=9600
 T 58200 43400 5 10 1 1 0 0 1
 refdes=R1b
 }
@@ -134,7 +136,7 @@ C 57900 41800 1 270 0 resistor-2.sym
 T 58250 41400 5 10 0 0 270 0 1
 device=RESISTOR
 T 57500 41300 5 10 0 1 0 0 1
-value=10k
+value=1k
 T 58200 41300 5 10 1 1 0 0 1
 refdes=R2b
 }
@@ -157,7 +159,7 @@ C 60000 41200 1 270 0 resistor-2.sym
 T 60350 40800 5 10 0 0 270 0 1
 device=RESISTOR
 T 59600 40700 5 10 0 1 0 0 1
-value=1k
+value=60
 T 60300 40700 5 10 1 1 0 0 1
 refdes=R4b
 }
@@ -179,14 +181,14 @@ C 60000 42300 1 270 0 resistor-2.sym
 T 60350 41900 5 10 0 0 270 0 1
 device=RESISTOR
 T 60300 41700 5 10 1 1 0 0 1
-value=700
+value=140
 T 60300 41900 5 10 1 1 0 0 1
 refdes=R3b
 }
 N 60100 42300 60100 42700 4
 T 53900 37700 9 10 1 0 0 0 2
-Then I know Veb is 0.3 and the current is 1mA.
-Then R4b = V/I = 0.3/0.001=300
+I know Ve is 0.3 and the current is 5mA.
+Then R4 = V/I = 0.3/0.005=60
 C 57900 36200 1 270 0 resistor-2.sym
 {
 T 58250 35800 5 10 0 0 270 0 1
@@ -194,7 +196,7 @@ device=RESISTOR
 T 57500 35700 5 10 0 1 0 0 1
 value=80k
 T 58200 35700 5 10 1 1 0 0 1
-refdes=R1b
+refdes=R1c
 }
 C 57900 34100 1 270 0 resistor-2.sym
 {
@@ -203,7 +205,7 @@ device=RESISTOR
 T 57500 33600 5 10 0 1 0 0 1
 value=10k
 T 58200 33600 5 10 1 1 0 0 1
-refdes=R2b
+refdes=R2c
 }
 N 58000 33200 58000 32200 4
 N 58000 32200 60100 32200 4
@@ -217,16 +219,16 @@ N 58000 34800 60100 34800 4
 N 59000 34800 59500 35300 4
 {
 T 59000 35200 5 10 1 1 0 0 1
-netname=Vbb
+netname=Vbc
 }
 C 60000 33500 1 270 0 resistor-2.sym
 {
 T 60350 33100 5 10 0 0 270 0 1
 device=RESISTOR
 T 60300 32900 5 10 1 1 0 0 1
-value=300
+value=60
 T 60300 33100 5 10 1 1 0 0 1
-refdes=R4b
+refdes=R4c
 }
 N 60100 33500 60100 33700 4
 N 60100 32600 60100 32200 4
@@ -239,16 +241,16 @@ netname=vcc
 N 60100 33500 60600 33700 4
 {
 T 60600 33500 5 10 1 1 0 0 1
-netname=Veb
+netname=Vec
 }
 C 60000 34600 1 270 0 resistor-2.sym
 {
 T 60350 34200 5 10 0 0 270 0 1
 device=RESISTOR
 T 60300 34000 5 10 1 1 0 0 1
-value=700
+value=140
 T 60300 34200 5 10 1 1 0 0 1
-refdes=R3b
+refdes=R3c
 }
 N 60100 34600 60100 34800 4
 C 57900 28800 1 270 0 resistor-2.sym
@@ -258,7 +260,7 @@ device=RESISTOR
 T 57500 28300 5 10 0 1 0 0 1
 value=80k
 T 58200 28300 5 10 1 1 0 0 1
-refdes=R1c
+refdes=R1d
 }
 C 57900 26700 1 270 0 resistor-2.sym
 {
@@ -267,7 +269,7 @@ device=RESISTOR
 T 57500 26200 5 10 0 1 0 0 1
 value=10k
 T 58200 26200 5 10 1 1 0 0 1
-refdes=R2c
+refdes=R2d
 }
 N 58000 25800 58000 24800 4
 N 58000 24800 60100 24800 4
@@ -281,7 +283,7 @@ N 58000 27400 60100 27400 4
 N 59000 27400 59500 27900 4
 {
 T 59000 27800 5 10 1 1 0 0 1
-netname=Vbc
+netname=Vbd
 }
 N 60100 24800 60100 25700 4
 B 53700 24100 9300 6700 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
@@ -295,22 +297,22 @@ C 60000 26600 1 270 0 resistor-2.sym
 T 60350 26200 5 10 0 0 270 0 1
 device=RESISTOR
 T 60300 26000 5 10 1 1 0 0 1
-value=1k
+value=200
 T 60300 26200 5 10 1 1 0 0 1
-refdes=R4c
+refdes=R4d
 }
 N 60100 26600 60100 27400 4
 T 53900 30100 9 10 1 0 0 0 2
 For the sake of calculations join R3 and R4 to a single
-1k resistor.
+200 ohm resistor.
 C 57900 21600 1 270 0 resistor-2.sym
 {
 T 58250 21200 5 10 0 0 270 0 1
 device=RESISTOR
 T 58200 21000 5 10 1 1 0 0 1
-value=16k
+value=9600
 T 58200 21300 5 10 1 1 0 0 1
-refdes=R1d
+refdes=R1e
 }
 C 57900 19200 1 270 0 resistor-2.sym
 {
@@ -319,7 +321,7 @@ device=RESISTOR
 T 58200 18700 5 10 1 1 0 0 1
 value=1k
 T 58200 18900 5 10 1 1 0 0 1
-refdes=R2d
+refdes=R2e
 }
 N 58000 18300 58000 17600 4
 N 58000 17600 60100 17600 4
@@ -333,7 +335,7 @@ N 58000 20200 60100 20200 4
 N 59000 20200 59500 20700 4
 {
 T 59000 20600 5 10 1 1 0 0 1
-netname=Vbd
+netname=Vbe
 }
 N 60100 17600 60100 18200 4
 B 53700 16900 9300 6700 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
@@ -347,15 +349,99 @@ C 60000 19100 1 270 0 resistor-2.sym
 T 60350 18700 5 10 0 0 270 0 1
 device=RESISTOR
 T 60300 18500 5 10 1 1 0 0 1
-value=1k
+value=200
 T 60300 18700 5 10 1 1 0 0 1
-refdes=R4d
+refdes=R4e
 }
 N 60100 19100 60100 20200 4
-T 53900 22200 9 10 1 0 0 0 6
-Now R1 and (R2-R4) are a voltage divider, where Vbb has to be 1v
-Vcc*(R2+R4)/(R2+R4+R1)=1
+T 53900 22000 9 10 1 0 0 0 7
+Now R1 and (R2-R4) are a voltage divider, where Vb is 1v
+then Vcc*(R2+R4)/(R2+R4+R1)=1
 This gives the ratio of R1 and R2 based on R4
-9*(R2+1k)/(R1+R2+1k))=1
-R1=8R2+8K
-Let's say R2=1k too, so R1 will be 16K
+9*(R2+200)/(R1+R2+200))=1
+9R2+1800=R1+R2+200
+R1=8R2+1600
+Let's say R2=1k, so R1 will be 9.6K
+T 61500 48700 9 10 1 0 0 0 2
+Collector and emitter are shorted
+to take them out of the game
+T 64700 51800 9 10 1 0 0 0 5
+voltage divider
+9*R2/(R1+R2)=1
+9R2=R1+R2
+R1=8R2
+
+C 70300 48700 1 0 0 npn-3.sym
+{
+T 71200 49200 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 70300 48700 5 10 0 1 0 0 1
+model-name=genericNPN
+T 70300 48700 5 10 0 0 0 0 1
+model=npn
+T 70800 49100 5 10 1 1 0 0 1
+refdes=Q1f
+}
+C 68700 51000 1 270 0 resistor-2.sym
+{
+T 69050 50600 5 10 0 0 270 0 1
+device=RESISTOR
+T 68300 50500 5 10 0 1 0 0 1
+value=80k
+T 69000 50500 5 10 1 1 0 0 1
+refdes=R1f
+}
+C 68700 48400 1 270 0 resistor-2.sym
+{
+T 69050 48000 5 10 0 0 270 0 1
+device=RESISTOR
+T 68300 47900 5 10 0 1 0 0 1
+value=10k
+T 69000 47900 5 10 1 1 0 0 1
+refdes=R2f
+}
+N 68800 51000 68800 51100 4
+N 68800 47500 68800 47000 4
+N 68800 47000 70900 47000 4
+N 70900 49700 70900 50100 4
+N 68800 48400 68800 50100 4
+C 69900 46700 1 0 0 gnd-1.sym
+{
+T 69800 46700 5 10 1 1 0 0 1
+netname=0
+}
+N 68800 49200 70300 49200 4
+N 69800 49200 70300 49700 4
+{
+T 69800 49600 5 10 1 1 0 0 1
+netname=Vbf
+}
+C 70800 48300 1 270 0 resistor-2.sym
+{
+T 71150 47900 5 10 0 0 270 0 1
+device=RESISTOR
+T 70400 47800 5 10 0 1 0 0 1
+value=500k
+T 71100 47800 5 10 1 1 0 0 1
+refdes=R4f
+}
+N 70900 48300 70900 48700 4
+N 70900 47400 70900 47000 4
+B 64500 46300 9300 6700 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
+C 68600 51100 1 0 0 vcc-1.sym
+{
+T 68700 51500 5 10 0 1 0 0 1
+netname=vcc
+}
+N 70900 48300 71400 48500 4
+{
+T 71400 48300 5 10 1 1 0 0 1
+netname=Vef
+}
+A 71200 49500 900 283 234 3 0 0 0 -1 -1
+N 70900 50100 71900 50100 4
+N 71900 48600 71900 50100 4
+N 70900 48600 71900 48600 4
+T 69800 50500 9 10 1 0 0 0 2
+vba-vea is the transistor 
+diode drop, around 0.7V
