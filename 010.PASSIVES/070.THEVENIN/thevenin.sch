@@ -1,5 +1,5 @@
 v 20130925 2
-T 23200 74900 9 10 1 0 0 0 5
+T 24000 74800 9 10 1 0 0 0 5
 Any linear network having a number of voltage sources and resistances
 can be replaced by a simple equivalent circuit consisting of a single voltage 
 source (VTH) in series with a resistance (RTH), where VTH is the open-circuit 
@@ -151,7 +151,7 @@ refdes=RL
 }
 N 31400 72900 31400 74100 4
 N 31400 72000 31400 70500 4
-T 23500 69300 9 10 1 0 0 0 3
+T 24000 69200 9 10 1 0 0 0 3
 So suppose we have a circuit like the above and we have to reason about the load RL.
 By all practical effects, from the point of view of RL the circuit is equivalent to the one
 below:
@@ -191,13 +191,13 @@ N 28100 67900 28100 68700 4
 N 28100 67000 28100 66300 4
 T 23600 65100 9 15 1 0 0 0 1
 STEP 1
-T 23400 63500 9 10 1 0 0 0 6
+T 24000 63600 9 10 1 0 0 0 6
 Remove the load resistance and short all the voltage sources.
 (and open all the current sources BTW)
 RTh is the "equivalent resistance", measured where the load was
 in the first place.
-Go on and perfoem all the calculations or just simulate the whole
-thing like I did.
+Go on and perform all the calculations or just simulate the whole
+thing like I did; anything goes.
 C 23200 62600 1 0 0 resistor-2.sym
 {
 T 23600 62950 5 10 0 0 0 0 1
@@ -303,7 +303,7 @@ N 29500 60000 29500 60200 4
 N 26500 59100 31000 59100 4
 N 31000 61500 31000 62700 4
 N 31000 60600 31000 59100 4
-T 22900 57000 9 10 1 0 0 0 3
+T 24000 57200 9 10 1 0 0 0 3
 The Thevenin voltage is just the voltage at the output terminals of the original circuit. 
 So remove the load resistor and just measure it.
 Hint: I used a simulation here too...
@@ -444,8 +444,12 @@ N 31000 54700 31000 55900 4
 N 31000 53800 31000 52300 4
 T 23800 58000 9 15 1 0 0 0 1
 STEP 2
-T 23400 65500 9 10 1 0 0 0 1
+T 24000 65600 9 10 1 0 0 0 1
 How to determine the values of RTh and VTh?
 T 30800 54200 9 10 1 0 0 0 1
 VTh
 A 30800 54200 600 319 90 3 0 0 0 -1 -1
+T 24000 51200 9 10 1 0 0 0 3
+Up to this point, looks like there is nothing too exciting about old Thevenin's theorem.
+But trust me, it is an invaluable tool to elegantly manage some nasty situations
+(that we are going to encounter soon).
