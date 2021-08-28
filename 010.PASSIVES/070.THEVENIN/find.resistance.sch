@@ -139,3 +139,8 @@ set color1=rgb:0/0/0
 print 10/@rtest[i]
 .endc
 }
+C 28200 58800 1 0 0 gnd-1.sym
+{
+T 28100 58800 5 10 1 1 0 0 1
+netname=0
+}
