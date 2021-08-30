@@ -1,8 +1,8 @@
 v 20130925 2
-T 23200 75100 9 10 1 0 0 0 2
+T 23700 76800 9 10 1 0 0 0 2
 For any node in an electrical circuit, the sum of currents flowing into that node
 is equal to the sum of currents flowing out of that node.
-T 23100 76300 9 15 1 0 0 0 1
+T 23600 77500 9 15 1 0 0 0 1
 KIRCHOFF's Current Law (KCL; his name was Gustav Robert Kirchhoff)
 C 22500 74000 1 0 0 resistor-2.sym
 {
@@ -212,8 +212,51 @@ C 29000 69500 1 0 0 gnd-1.sym
 T 28900 69500 5 10 1 1 0 0 1
 netname=0
 }
-T 23300 68700 9 10 1 0 0 0 3
+T 23300 68700 9 10 1 0 0 0 2
 this script tells us that the sum of current through the circled node is 7.632783e-17
-that is 0.00000000000000007632783, that is close enough to zero as Mr. Kirchoff told us 
-some time ago.
+that is 0.00000000000000007632783, close enough to zero for a simulation.
 V 26900 71300 100 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
+T 23500 75700 9 15 1 0 0 0 1
+KIRCHOFF's Voltage Law (KVL)
+T 23700 75200 9 10 1 0 0 0 1
+The algebraic sum of all voltages in a loop must equal zero
+N 26900 74100 27300 74400 4
+{
+T 27200 74500 5 10 1 1 0 0 1
+netname=Vt1
+}
+N 30200 74100 30600 74400 4
+{
+T 30500 74500 5 10 1 1 0 0 1
+netname=Vt2
+}
+N 28400 71600 28800 71900 4
+{
+T 28700 72000 5 10 1 1 0 0 1
+netname=Vt3
+}
+N 26900 72600 27400 72700 4
+{
+T 27500 72600 5 10 1 1 0 0 1
+netname=Vt5
+}
+N 26900 71300 27300 71500 4
+{
+T 27100 71500 5 10 1 1 0 0 1
+netname=Vt4
+}
+N 24600 71900 25000 72200 4
+{
+T 24900 72300 5 10 1 1 0 0 1
+netname=Vta
+}
+N 24600 70700 25000 71000 4
+{
+T 24900 71100 5 10 1 1 0 0 1
+netname=Vtb
+}
+N 22500 71300 22200 71700 4
+{
+T 22000 71800 5 10 1 1 0 0 1
+netname=Vtc
+}
