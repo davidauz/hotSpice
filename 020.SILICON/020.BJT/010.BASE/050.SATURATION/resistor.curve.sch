@@ -58,13 +58,13 @@ T 58900 51800 5 10 1 1 180 0 1
 refdes=R1
 }
 N 59300 51500 59900 51500 4
-T 55300 54100 9 10 1 0 0 0 6
+T 55300 53600 9 10 1 0 0 0 6
 The usual 2D graph for a resistor is a straight line.
 Here we are drawing a 3D plot with a circuit similar 
 to the one used for the transistor characteristic curve.  
 But... it's a simple plane!
 BORING!
-Hold on, this will come to use in a minute.
+Hold on, this will come to use in the next schematic.
 C 52900 54000 1 0 0 spice-directive-1.sym
 {
 T 53000 54300 5 10 0 1 0 0 1
@@ -85,3 +85,6 @@ echo "* Exit ngspice by pressing Ctrl+D or by typing 'exit' *"
 echo "*******************************************************"
 .endc
 }
+T 53400 48300 9 10 1 0 0 0 2
+N.B. this example uses a shell script to generate the 3D plot.
+Use RUNME.sh to see the pictures

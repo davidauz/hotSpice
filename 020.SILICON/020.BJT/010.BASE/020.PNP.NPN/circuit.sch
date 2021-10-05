@@ -157,14 +157,14 @@ N 58000 54000 57900 53600 4
 T 58000 54100 5 10 1 1 0 0 1
 netname=q1b
 }
-T 55300 56700 9 14 1 0 0 0 4
+T 57800 56600 9 14 1 0 0 0 4
 This is not much an example.  It is a reminder of the necessity of giving
 different names to models when there are different transistors in a circuit.
 I.e. how not to waste whole days puzzling on something super simple that 
 apparently just refuses to work.
 T 52500 51100 9 10 1 0 0 0 2
-In the plot some of the values are plotted adding some
-constant valule just to make them easier to see.
+In the plot some of the values are plotted adding a
+tiny constant valule just to make them easier to spot.
 C 64900 54600 1 0 0 spice-directive-1.sym
 {
 T 65000 54900 5 10 0 1 0 0 1

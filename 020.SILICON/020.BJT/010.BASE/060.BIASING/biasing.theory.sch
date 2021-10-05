@@ -1,0 +1,712 @@
+v 20130925 2
+T 53700 63700 9 10 1 0 0 0 16
+There are a gazillion methods to calculate the common emitter circuit biasing.
+Below is the Poor Man's method, very simple but effective.
+
+Base parameters:
+- Vcc voltage value (10V)
+- Transistor beta (100)
+- desired gain (10)
+- Load resistance (R5=47k)
+
+The following are coarse rule of thumb to avoid complex formulas.
+R3 = R5 /5 = 10k
+R4 = R3/gain = 10k/10 = 1000
+Ic( mA ) = [(Vcc / 2) / (R3 + R4)] * 1.000 =  [(10/2)/(10000+1000)]*1000 = .4545
+R4 voltage drop VR4 = (Ic * R4) / 1000 = .495*1000/1000 = .495
+R2 = beta *R4 /10 = 100*1000/10=10000
+R1=((Vcc*R2)/(Vbe+VR4))-R2 = ((10*10000)/(.7+.495))-10000=73682
+C 55800 62500 1 270 0 voltage-3.sym
+{
+T 56500 62300 5 8 0 1 270 0 1
+device=VOLTAGE_SOURCE
+T 56500 62300 5 8 0 1 270 0 1
+graphical=1
+T 56300 62100 5 10 1 1 0 0 1
+refdes=V1
+T 56300 61900 5 10 1 1 0 0 1
+value=DC 9V
+}
+N 56000 61600 56000 61200 4
+C 55900 60900 1 0 0 gnd-1.sym
+{
+T 55800 60900 5 10 1 1 0 0 1
+netname=0
+}
+C 55800 62600 1 0 0 vcc-1.sym
+{
+T 55900 63000 5 10 0 1 0 0 1
+netname=vcc
+}
+C 55200 59700 1 270 0 voltage-3.sym
+{
+T 55900 59500 5 8 0 0 270 0 1
+device=VOLTAGE_SOURCE
+T 55200 59700 5 10 0 0 0 0 1
+value=0 SIN (0 0.01 50  0 0 0) 
+T 55200 59700 5 10 0 0 0 0 1
+comment=SIN (Vo Va Freq Td Df Phase)
+T 54100 59200 5 10 1 1 0 0 1
+refdes=VSIGNAL
+T 55200 59700 5 10 0 0 0 0 1
+graphical=1
+}
+C 55300 58500 1 0 0 gnd-1.sym
+{
+T 55200 58500 5 10 1 1 0 0 1
+netname=0
+}
+N 56000 62500 56000 62600 4
+C 59500 59200 1 0 0 npn-3.sym
+{
+T 60400 59700 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 59500 59200 5 10 0 1 0 0 1
+model-name=genericNPN
+T 59500 59200 5 10 0 0 0 0 1
+model=npn
+T 60000 59600 5 10 1 1 0 0 1
+refdes=Q1
+T 59500 59200 5 10 0 0 0 0 1
+graphical=1
+}
+C 57900 61500 1 270 0 resistor-2.sym
+{
+T 58250 61100 5 10 0 0 270 0 1
+device=RESISTOR
+T 57500 61000 5 10 1 1 0 0 1
+value=73682
+T 58200 61000 5 10 1 1 0 0 1
+refdes=R1
+T 57900 61500 5 10 0 0 0 0 1
+graphical=1
+}
+C 57900 58900 1 270 0 resistor-2.sym
+{
+T 58250 58500 5 10 0 0 270 0 1
+device=RESISTOR
+T 57500 58400 5 10 1 1 0 0 1
+value=10000
+T 58200 58400 5 10 1 1 0 0 1
+refdes=R2
+T 57900 58900 5 10 0 0 0 0 1
+graphical=1
+}
+C 60000 61500 1 270 0 resistor-2.sym
+{
+T 60350 61100 5 10 0 0 270 0 1
+device=RESISTOR
+T 59600 61000 5 10 1 1 0 0 1
+value=10k
+T 60300 61200 5 10 1 1 0 0 1
+refdes=R3
+T 60300 61000 5 10 0 1 0 0 1
+graphical=1
+}
+N 60100 61500 60100 61900 4
+N 58000 61900 60100 61900 4
+N 58000 61900 58000 61500 4
+N 58000 58000 58000 57500 4
+N 58000 57500 61900 57500 4
+N 60100 60200 60100 60600 4
+N 58000 58900 58000 60600 4
+C 59100 57200 1 0 0 gnd-1.sym
+{
+T 59000 57200 5 10 1 1 0 0 1
+netname=0
+}
+C 59000 61900 1 0 0 vcc-1.sym
+{
+T 59100 62300 5 10 0 1 0 0 1
+netname=vcc
+}
+C 60600 60200 1 0 0 capacitor-1.sym
+{
+T 60800 60900 5 10 0 0 0 0 1
+device=CAPACITOR
+T 60800 61100 5 10 0 0 0 0 1
+symversion=0.1
+T 60900 60700 5 10 1 1 0 0 1
+refdes=C2
+T 60900 60000 5 10 1 1 0 0 1
+value=1m
+T 60600 60200 5 10 0 0 0 0 1
+graphical=1
+}
+N 60600 60400 60100 60400 4
+C 61800 58900 1 270 0 resistor-2.sym
+{
+T 62150 58500 5 10 0 0 270 0 1
+device=RESISTOR
+T 61400 58400 5 10 1 1 0 0 1
+value=47k
+T 62100 58400 5 10 1 1 0 0 1
+refdes=R5
+T 62150 58500 5 10 0 0 270 0 1
+graphical=1
+}
+N 61900 58900 61900 60400 4
+N 61900 58000 61900 57500 4
+N 61500 60400 61900 60400 4
+N 61900 60400 62400 60900 4
+{
+T 62200 60400 5 10 1 1 0 0 1
+netname=Vout
+}
+N 55500 59700 56000 60200 4
+{
+T 55800 59700 5 10 1 1 0 0 1
+netname=Vs
+}
+C 56300 59500 1 0 0 capacitor-1.sym
+{
+T 56500 60200 5 10 0 0 0 0 1
+device=CAPACITOR
+T 56500 60400 5 10 0 0 0 0 1
+symversion=0.1
+T 56600 60000 5 10 1 1 0 0 1
+refdes=C1
+T 56600 59300 5 10 1 1 0 0 1
+value=1m
+T 56300 59500 5 10 0 0 0 0 1
+graphical=1
+}
+N 55400 59700 56300 59700 4
+N 57200 59700 58000 59700 4
+N 58000 59700 59500 59700 4
+C 60000 58800 1 270 0 resistor-2.sym
+{
+T 60350 58400 5 10 0 0 270 0 1
+device=RESISTOR
+T 60350 58400 5 10 0 0 270 0 1
+graphical=1
+T 59600 58300 5 10 1 1 0 0 1
+value=1000
+T 60300 58300 5 10 1 1 0 0 1
+refdes=R4
+}
+N 60100 58800 60100 59200 4
+N 60100 57900 60100 57500 4
+B 53700 56800 9300 6700 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
+C 70500 59100 1 0 0 npn-3.sym
+{
+T 71400 59600 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 71400 59600 5 10 0 0 0 0 1
+graphical=1
+T 70500 59100 5 10 0 1 0 0 1
+model-name=genericNPN
+T 70500 59100 5 10 0 0 0 0 1
+model=npn
+T 71000 59500 5 10 1 1 0 0 1
+refdes=Q1
+}
+C 68200 61400 1 270 0 resistor-2.sym
+{
+T 68550 61000 5 10 0 0 270 0 1
+device=RESISTOR
+T 68550 61000 5 10 0 0 270 0 1
+graphical=1
+T 68500 60900 5 10 1 1 0 0 1
+refdes=R1
+}
+C 68200 58800 1 270 0 resistor-2.sym
+{
+T 68550 58400 5 10 0 0 270 0 1
+device=RESISTOR
+T 68550 58400 5 10 0 0 270 0 1
+graphical=1
+T 68500 58300 5 10 1 1 0 0 1
+refdes=R2
+}
+C 71000 61400 1 270 0 resistor-2.sym
+{
+T 71350 61000 5 10 0 0 270 0 1
+device=RESISTOR
+T 71350 61000 5 10 0 0 270 0 1
+graphical=1
+T 71300 60900 5 10 1 1 0 0 1
+refdes=RC
+}
+N 71100 61400 71100 61800 4
+N 68300 61800 71100 61800 4
+N 68300 61800 68300 61400 4
+N 68300 57900 68300 57400 4
+N 71100 60100 71100 60500 4
+N 68300 58800 68300 60500 4
+C 69600 57100 1 0 0 gnd-1.sym
+{
+T 69500 57100 5 10 1 1 0 0 1
+netname=0
+}
+C 69500 61800 1 0 0 vcc-1.sym
+{
+T 69600 62200 5 10 0 1 0 0 1
+netname=vcc
+}
+N 68300 59600 70500 59600 4
+C 71000 58700 1 270 0 resistor-2.sym
+{
+T 71350 58300 5 10 0 0 270 0 1
+device=RESISTOR
+T 71350 58300 5 10 0 0 270 0 1
+graphical=1
+T 71300 58200 5 10 1 1 0 0 1
+refdes=RE
+}
+N 71100 58700 71100 59100 4
+N 71100 57800 71100 57400 4
+B 64000 56700 9300 6700 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
+N 68300 57400 71100 57400 4
+T 64300 62200 9 10 1 0 0 0 5
+Now let's try a more advanced line of reasoning.
+What do we know already about this circuit:
+1) VE≈IC*RE (since IC≈IE)
+2) VB=VE+VBE=IC*RE+VBE where VBE is the diode drop of the BE junction.
+
+N 71100 58800 71500 58900 4
+{
+T 71500 58800 5 10 1 1 0 0 1
+netname=VE
+}
+L 70900 61200 70900 60500 3 0 0 0 -1 -1
+L 70800 60600 70900 60500 3 0 0 0 -1 -1
+L 70900 60500 71000 60600 3 0 0 0 -1 -1
+T 70700 60900 9 10 1 0 0 0 1
+IC
+L 70900 58500 70900 57800 3 0 0 0 -1 -1
+L 70800 57900 70900 57800 3 0 0 0 -1 -1
+L 70900 57800 71000 57900 3 0 0 0 -1 -1
+T 70700 58200 9 10 1 0 0 0 1
+IE
+N 69000 59600 69300 60000 4
+{
+T 69300 60000 5 10 1 1 0 0 1
+netname=VB
+}
+A 71000 59500 500 180 90 3 0 0 0 -1 -1
+T 70300 59000 9 10 1 0 0 0 1
+VBE
+L 70500 59500 70400 59400 3 0 0 0 -1 -1
+L 70600 59400 70500 59500 3 0 0 0 -1 -1
+L 70900 59100 71000 59000 3 0 0 0 -1 -1
+L 70900 58900 71000 59000 3 0 0 0 -1 -1
+C 71900 51400 1 0 0 npn-3.sym
+{
+T 72800 51900 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 72800 51900 5 10 0 0 0 0 1
+graphical=1
+T 71900 51400 5 10 0 1 0 0 1
+model-name=genericNPN
+T 71900 51400 5 10 0 0 0 0 1
+model=npn
+T 72400 51800 5 10 1 1 0 0 1
+refdes=Q1
+}
+C 69600 53700 1 270 0 resistor-2.sym
+{
+T 69950 53300 5 10 0 0 270 0 1
+device=RESISTOR
+T 69950 53300 5 10 0 0 270 0 1
+graphical=1
+T 69900 53200 5 10 1 1 0 0 1
+refdes=R1
+}
+C 69600 51100 1 270 0 resistor-2.sym
+{
+T 69950 50700 5 10 0 0 270 0 1
+device=RESISTOR
+T 69950 50700 5 10 0 0 270 0 1
+graphical=1
+T 69900 50600 5 10 1 1 0 0 1
+refdes=R2
+}
+C 72400 53700 1 270 0 resistor-2.sym
+{
+T 72750 53300 5 10 0 0 270 0 1
+device=RESISTOR
+T 72750 53300 5 10 0 0 270 0 1
+graphical=1
+T 72700 53200 5 10 1 1 0 0 1
+refdes=RC
+}
+N 72500 53700 72500 54100 4
+N 69700 54100 72500 54100 4
+N 69700 54100 69700 53700 4
+N 69700 50200 69700 49700 4
+N 72500 52400 72500 52800 4
+N 69700 51100 69700 52800 4
+C 71000 49400 1 0 0 gnd-1.sym
+{
+T 70900 49400 5 10 1 1 0 0 1
+netname=0
+}
+C 70900 54100 1 0 0 vcc-1.sym
+{
+T 71000 54500 5 10 0 1 0 0 1
+netname=vcc
+}
+N 69700 51900 71900 51900 4
+C 72400 51000 1 270 0 resistor-2.sym
+{
+T 72750 50600 5 10 0 0 270 0 1
+device=RESISTOR
+T 72750 50600 5 10 0 0 270 0 1
+graphical=1
+T 72700 50500 5 10 1 1 0 0 1
+refdes=RE
+}
+N 72500 51000 72500 51400 4
+N 72500 50100 72500 49700 4
+B 64000 49300 9300 6700 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
+N 69700 49700 72500 49700 4
+N 72500 51100 72900 51200 4
+{
+T 72900 51100 5 10 1 1 0 0 1
+netname=VE
+}
+L 72300 53500 72300 52800 3 0 0 0 -1 -1
+L 72200 52900 72300 52800 3 0 0 0 -1 -1
+L 72300 52800 72400 52900 3 0 0 0 -1 -1
+L 72300 50800 72300 50100 3 0 0 0 -1 -1
+L 72200 50200 72300 50100 3 0 0 0 -1 -1
+L 72300 50100 72400 50200 3 0 0 0 -1 -1
+N 70400 51900 70700 52300 4
+{
+T 70700 52300 5 10 1 1 0 0 1
+netname=VB
+}
+A 72400 51800 500 180 90 3 0 0 0 -1 -1
+L 71900 51800 71800 51700 3 0 0 0 -1 -1
+L 72000 51700 71900 51800 3 0 0 0 -1 -1
+L 72300 51400 72400 51300 3 0 0 0 -1 -1
+L 72300 51200 72400 51300 3 0 0 0 -1 -1
+T 72100 53200 9 10 1 0 0 0 1
+IC
+T 72100 50500 9 10 1 0 0 0 1
+IE
+T 71700 51300 9 10 1 0 0 0 1
+VBE
+T 64100 53300 9 10 1 0 0 0 13
+Some things we can decide: 
+3) Emitter DC point i.e. VE at quiescent point = VEq.
+    Let's say VEq=1V.
+   Actually more voltage here would be better for stability but this 
+   would mean less swing for the output signal.
+4) Collector Quiescent current ICq according to the device datasheet
+    thermal conditions etc...  Here we make things simple and 
+    arbitrarily decide for 10mA so there is space for the signal swing
+    to go as low as -10mA.
+5) Load: in this example we decide for a null (or anyway very small) 
+    load.
+6) min(VCE) to keep Q1 out of saturation (and help with stability)
+    let's say 2V.
+A 72375 51875 500 292 133 3 0 0 0 -1 -1
+T 72900 51800 9 10 1 0 0 0 1
+VCE
+T 64150 52250 9 10 1 0 0 0 5
+Now we can say that the minimum collector voltage 
+min(VC) = VEq+min(VCE) = 1+2 = 3V
+This means that the output signal can go from 3V to 9V;
+the middle of that range is 6V, and that will be our 
+quiescent collector voltage VCq.
+T 64150 51750 9 10 1 0 0 0 2
+Since VBE is the diode drop almost always 0.7, we can say
+that VB= VE+VBE=1+0.7=1.7V
+T 70800 54600 9 10 1 0 0 0 1
+At Quiescent point (no signal):
+T 73100 51100 9 10 1 0 0 0 1
+ = 1V
+T 71600 53000 9 10 1 0 0 0 1
+ = 10mA
+T 73200 51800 9 10 1 0 0 0 1
+ = 2V
+N 72500 52600 72900 52700 4
+{
+T 72900 52600 5 10 1 1 0 0 1
+netname=VC
+}
+T 73100 52600 9 10 1 0 0 0 1
+ = 6V
+T 70900 52300 9 10 1 0 0 0 1
+ = 1.7V
+T 64150 47850 9 10 1 0 0 0 4
+Now we need a "stiff" voltage diider, i.e. we need the base current 
+to be small in comparison to the current in R2.
+In other words, the base current has to be ten times smaller than the collector
+current at quiescent point, that is 1mA.
+C 71900 44200 1 0 0 npn-3.sym
+{
+T 72800 44700 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 72800 44700 5 10 0 0 0 0 1
+graphical=1
+T 71900 44200 5 10 0 1 0 0 1
+model-name=genericNPN
+T 71900 44200 5 10 0 0 0 0 1
+model=npn
+T 72400 44600 5 10 1 1 0 0 1
+refdes=Q1
+}
+C 69600 46500 1 270 0 resistor-2.sym
+{
+T 69950 46100 5 10 0 0 270 0 1
+device=RESISTOR
+T 69950 46100 5 10 0 0 270 0 1
+graphical=1
+T 69900 46000 5 10 1 1 0 0 1
+refdes=R1
+T 69900 45800 5 10 1 1 0 0 1
+value=7300
+}
+C 69600 43900 1 270 0 resistor-2.sym
+{
+T 69950 43500 5 10 0 0 270 0 1
+device=RESISTOR
+T 69950 43500 5 10 0 0 270 0 1
+graphical=1
+T 69900 43400 5 10 1 1 0 0 1
+refdes=R2
+T 69900 43200 5 10 1 1 0 0 1
+value=1700
+}
+C 72400 46500 1 270 0 resistor-2.sym
+{
+T 72750 46100 5 10 0 0 270 0 1
+device=RESISTOR
+T 72750 46100 5 10 0 0 270 0 1
+graphical=1
+T 72700 46000 5 10 1 1 0 0 1
+refdes=RC
+}
+N 72500 46500 72500 46900 4
+N 69700 46900 72500 46900 4
+N 69700 46900 69700 46500 4
+N 69700 43000 69700 42500 4
+N 72500 45200 72500 45600 4
+N 69700 43900 69700 45600 4
+C 71000 42200 1 0 0 gnd-1.sym
+{
+T 70900 42200 5 10 1 1 0 0 1
+netname=0
+}
+C 70900 46900 1 0 0 vcc-1.sym
+{
+T 71000 47300 5 10 0 1 0 0 1
+netname=vcc
+}
+N 69700 44700 71900 44700 4
+C 72400 43800 1 270 0 resistor-2.sym
+{
+T 72750 43400 5 10 0 0 270 0 1
+device=RESISTOR
+T 72750 43400 5 10 0 0 270 0 1
+graphical=1
+T 72700 43300 5 10 1 1 0 0 1
+refdes=RE
+}
+N 72500 43800 72500 44200 4
+N 72500 42900 72500 42500 4
+B 64000 42100 9300 6700 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
+N 69700 42500 72500 42500 4
+N 72500 43900 72900 44000 4
+{
+T 72900 43900 5 10 1 1 0 0 1
+netname=VE
+}
+L 72300 46300 72300 45600 3 0 0 0 -1 -1
+L 72200 45700 72300 45600 3 0 0 0 -1 -1
+L 72300 45600 72400 45700 3 0 0 0 -1 -1
+L 72300 43600 72300 42900 3 0 0 0 -1 -1
+L 72200 43000 72300 42900 3 0 0 0 -1 -1
+L 72300 42900 72400 43000 3 0 0 0 -1 -1
+N 70400 44700 70700 45100 4
+{
+T 70700 45100 5 10 1 1 0 0 1
+netname=VB
+}
+A 72400 44600 500 180 90 3 0 0 0 -1 -1
+L 71900 44600 71800 44500 3 0 0 0 -1 -1
+L 72000 44500 71900 44600 3 0 0 0 -1 -1
+L 72300 44200 72400 44100 3 0 0 0 -1 -1
+L 72300 44000 72400 44100 3 0 0 0 -1 -1
+A 72375 44675 500 292 133 3 0 0 0 -1 -1
+N 72500 45400 72900 45500 4
+{
+T 72900 45400 5 10 1 1 0 0 1
+netname=VC
+}
+T 72100 46000 9 10 1 0 0 0 1
+IC
+T 72100 43300 9 10 1 0 0 0 1
+IE
+T 71700 44100 9 10 1 0 0 0 1
+VBE
+T 72900 44600 9 10 1 0 0 0 1
+VCE
+T 70800 47400 9 10 1 0 0 0 1
+At Quiescent point (no signal):
+T 73100 43900 9 10 1 0 0 0 1
+ = 1V
+T 71600 45800 9 10 1 0 0 0 1
+ = 10mA
+T 73200 44600 9 10 1 0 0 0 1
+ = 2V
+T 73100 45400 9 10 1 0 0 0 1
+ = 6V
+T 70900 45100 9 10 1 0 0 0 1
+ = 1.7V
+T 64200 45600 9 10 1 0 0 0 11
+Then
+
+   R1=(Vcc-VBq)/1mA=(9-1.7)/0.001=7300Ω
+
+and since R1 and R2 are a voltage divider
+
+   Vout=Vin*R2/(R1+R2)
+   1.7=9*R2/(7300+R2)
+   1.7*(7300+R2)=9*R2
+   12410=(9-1.7)*R2
+   R2=12410/7.3=1700Ω
+C 71900 37100 1 0 0 npn-3.sym
+{
+T 72800 37600 5 10 0 0 0 0 1
+device=NPN_TRANSISTOR
+T 72800 37600 5 10 0 0 0 0 1
+graphical=1
+T 71900 37100 5 10 0 1 0 0 1
+model-name=genericNPN
+T 71900 37100 5 10 0 0 0 0 1
+model=npn
+T 72400 37500 5 10 1 1 0 0 1
+refdes=Q1
+}
+C 69600 39400 1 270 0 resistor-2.sym
+{
+T 69950 39000 5 10 0 0 270 0 1
+device=RESISTOR
+T 69950 39000 5 10 0 0 270 0 1
+graphical=1
+T 69900 38900 5 10 1 1 0 0 1
+refdes=R1
+T 69900 38700 5 10 1 1 0 0 1
+value=7300
+}
+C 69600 36800 1 270 0 resistor-2.sym
+{
+T 69950 36400 5 10 0 0 270 0 1
+device=RESISTOR
+T 69950 36400 5 10 0 0 270 0 1
+graphical=1
+T 69900 36300 5 10 1 1 0 0 1
+refdes=R2
+T 69900 36100 5 10 1 1 0 0 1
+value=1700
+}
+C 72400 39400 1 270 0 resistor-2.sym
+{
+T 72750 39000 5 10 0 0 270 0 1
+device=RESISTOR
+T 72750 39000 5 10 0 0 270 0 1
+graphical=1
+T 72700 38900 5 10 1 1 0 0 1
+refdes=RC
+T 72700 38700 5 10 1 1 0 0 1
+value=300
+}
+N 72500 39400 72500 39800 4
+N 69700 39800 72500 39800 4
+N 69700 39800 69700 39400 4
+N 69700 35900 69700 35400 4
+N 72500 38100 72500 38500 4
+N 69700 36800 69700 38500 4
+C 71000 35100 1 0 0 gnd-1.sym
+{
+T 70900 35100 5 10 1 1 0 0 1
+netname=0
+}
+C 70900 39800 1 0 0 vcc-1.sym
+{
+T 71000 40200 5 10 0 1 0 0 1
+netname=vcc
+}
+N 69700 37600 71900 37600 4
+C 72400 36700 1 270 0 resistor-2.sym
+{
+T 72750 36300 5 10 0 0 270 0 1
+device=RESISTOR
+T 72750 36300 5 10 0 0 270 0 1
+graphical=1
+T 72700 36200 5 10 1 1 0 0 1
+refdes=RE
+T 72700 36000 5 10 1 1 0 0 1
+value=100
+}
+N 72500 36700 72500 37100 4
+N 72500 35800 72500 35400 4
+B 64000 35000 9300 6700 3 0 0 0 -1 -1 0 -1 -1 -1 -1 -1
+N 69700 35400 72500 35400 4
+N 72500 36800 72900 36900 4
+{
+T 72900 36800 5 10 1 1 0 0 1
+netname=VE
+}
+L 72300 39200 72300 38500 3 0 0 0 -1 -1
+L 72200 38600 72300 38500 3 0 0 0 -1 -1
+L 72300 38500 72400 38600 3 0 0 0 -1 -1
+L 72300 36500 72300 35800 3 0 0 0 -1 -1
+L 72200 35900 72300 35800 3 0 0 0 -1 -1
+L 72300 35800 72400 35900 3 0 0 0 -1 -1
+N 70400 37600 70700 38000 4
+{
+T 70700 38000 5 10 1 1 0 0 1
+netname=VB
+}
+A 72400 37500 500 180 90 3 0 0 0 -1 -1
+L 71900 37500 71800 37400 3 0 0 0 -1 -1
+L 72000 37400 71900 37500 3 0 0 0 -1 -1
+L 72300 37100 72400 37000 3 0 0 0 -1 -1
+L 72300 36900 72400 37000 3 0 0 0 -1 -1
+A 72375 37575 500 292 133 3 0 0 0 -1 -1
+N 72500 38300 72900 38400 4
+{
+T 72900 38300 5 10 1 1 0 0 1
+netname=VC
+}
+T 64150 40450 9 10 1 0 0 0 6
+For RE, we know that ICq=10mA, the signal may be in the order of 
+100uA, so
+
+  RE = VEq/(10mA+100ua) = 99
+
+Let's make it 100Ω
+T 72100 38900 9 10 1 0 0 0 1
+IC
+T 72100 36200 9 10 1 0 0 0 1
+IE
+T 71700 37000 9 10 1 0 0 0 1
+VBE
+T 72900 37500 9 10 1 0 0 0 1
+VCE
+T 70800 40300 9 10 1 0 0 0 1
+At Quiescent point (no signal):
+T 73100 36800 9 10 1 0 0 0 1
+ = 1V
+T 71600 38700 9 10 1 0 0 0 1
+ = 10mA
+T 73200 37500 9 10 1 0 0 0 1
+ = 2V
+T 73100 38300 9 10 1 0 0 0 1
+ = 6V
+T 70900 38000 9 10 1 0 0 0 1
+ = 1.7V
+T 64150 39450 9 10 1 0 0 0 3
+RC will be
+
+  RC = (9V-6V)/10mA = 300Ω
+T 64150 38550 9 10 1 0 0 0 4
+That's it!
+To the simulator!
+Not this one because it's all graphical=1,
+look for baising.test.sch instead
