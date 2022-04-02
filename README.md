@@ -1,6 +1,6 @@
 # hotSpice
 
-A collection of gschem/ngspice schematics.
+A collection of schematics.
 
-Needs gschem, ngspice and gnuplot.
+Needs lepton-schematics (formerly gschem), ngspice and gnuplot.
 
