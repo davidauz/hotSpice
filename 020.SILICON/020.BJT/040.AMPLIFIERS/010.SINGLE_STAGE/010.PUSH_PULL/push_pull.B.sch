@@ -1,7 +1,7 @@
 v 20201211 2
 C 59900 49600 1 0 0 vcc-1.sym
 T 56800 52300 9 20 1 0 0 0 1
-Push Pull
+Push Pull A.K.A. Class B
 C 55400 47900 1 0 0 npn-3.sym
 {
 T 56300 48400 5 10 0 0 0 0 1
@@ -116,8 +116,10 @@ T 63100 47400 5 10 0 0 0 0 1
 value=0 SIN (0 2 50  0 0 0) 
 T 63100 47400 5 10 0 0 0 0 1
 comment=SIN (Vo Va Freq Td Df Phase)
-T 62000 46900 5 10 1 1 0 0 1
+T 63500 47100 5 10 1 1 0 0 1
 refdes=VSIGNAL
+T 63400 47400 5 10 1 1 0 0 1
+comment=-2 to 2 V
 }
 N 63300 47400 63300 48100 4
 N 63300 46500 63300 46300 4
@@ -142,13 +144,14 @@ N 62900 48900 63300 48100 4
 T 63100 48750 5 10 1 1 0 0 1
 netname=Vin
 }
-T 55900 50700 9 10 1 0 0 0 6
+T 55900 50500 9 10 1 0 0 0 7
 The input voltage has to be higher than the diode drop 
 or the BJT won't even start conducting.
 The output voltage is actually lower than the input voltage but
 the current is amplified a lot.
-Also, it does not conduct when there is no signal so it is more efficient than
-the class A amplifier.
+It does not conduct when there is no signal so actually it is more
+efficient than the class A amplifier.
+Note the huge input signal needed to wake up the transistors.
 C 54200 47700 1 0 0 resistor-2.sym
 {
 T 54600 48050 5 10 0 0 0 0 1
