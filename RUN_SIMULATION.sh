@@ -19,8 +19,8 @@ find . -type d -empty -delete
 # see how many schematics are in there
 NUM_FILES=$(ls *sch | wc -l)
 [ 1 -eq $NUM_FILES ] && {
-	gschem *.sch  &
-	gnetlist -g spice-sdb -o net.net *.sch
+	lepton-schematic *.sch  &
+	lepton-netlist -g spice-sdb -o net.net *.sch
 	ngspice net.net
 	return
 }
@@ -33,8 +33,7 @@ NUM_FILES=$(ls *sch | wc -l)
 	return
 }
 
-
-gschem $1  &
-gnetlist -g spice-sdb -o net.net $1
+lepton-schematic $1  &
+lepton-netlist -g spice-sdb -o net.net $1
 ngspice net.net
 
