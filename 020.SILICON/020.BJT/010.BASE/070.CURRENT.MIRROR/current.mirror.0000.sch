@@ -1,11 +1,11 @@
-v 20130925 2
+v 20201211 2
 C 58400 60200 1 0 0 spice-directive-1.sym
 {
 T 58500 60500 5 10 0 1 0 0 1
 device=directive
 T 58500 60600 5 10 1 1 0 0 1
 refdes=A2
-T 58300 56500 5 10 1 1 0 0 20
+T 58300 56200 5 10 1 1 0 0 20
 value=.options savecurrents
 .control
 save all @r2[i] @r1[i]

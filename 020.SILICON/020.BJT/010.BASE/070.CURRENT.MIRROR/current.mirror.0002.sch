@@ -1,4 +1,4 @@
-v 20130925 2
+v 20201211 2
 C 52700 48900 1 270 0 voltage-3.sym
 {
 T 53400 48700 5 8 0 1 270 0 1
@@ -119,52 +119,53 @@ refdes=R3
 }
 N 58700 45700 58700 45400 4
 N 58700 44500 58700 44300 4
-C 52600 43400 1 0 0 npn-3.sym
+C 51800 43000 1 0 0 npn-3.sym
 {
-T 53500 43900 5 10 0 0 0 0 1
+T 52700 43500 5 10 0 0 0 0 1
 device=NPN_TRANSISTOR
-T 52600 43400 5 10 0 1 0 0 1
+T 51800 43000 5 10 0 1 0 0 1
 model-name=genericNPN
-T 52600 43400 5 10 0 0 0 0 1
+T 51800 43000 5 10 0 0 0 0 1
 model=npn
-T 53100 43900 5 10 1 1 0 0 1
+T 52300 43500 5 10 1 1 0 0 1
 refdes=Q1
 }
-C 53000 46300 1 0 0 vcc-1.sym
-C 53100 42900 1 0 0 gnd-1.sym
+C 52200 45900 1 0 0 vcc-1.sym
+C 52300 42500 1 0 0 gnd-1.sym
 {
-T 53000 42900 5 10 1 1 0 0 1
+T 52200 42500 5 10 1 1 0 0 1
 netname=0
 }
-N 53200 43200 53200 43400 4
-N 52600 43900 52400 43900 4
-N 52400 44600 52400 43900 4
-C 53300 45900 1 90 1 resistor-2.sym
+N 52400 42800 52400 43000 4
+N 51800 43500 51600 43500 4
+N 51600 44200 51600 43500 4
+C 52500 45500 1 90 1 resistor-2.sym
 {
-T 52950 45500 5 10 0 0 90 6 1
+T 52150 45100 5 10 0 0 90 6 1
 device=RESISTOR
-T 53400 45500 5 10 1 1 180 6 1
+T 52600 45100 5 10 1 1 180 6 1
 value=1000
-T 53400 45300 5 10 1 1 180 6 1
+T 52600 44900 5 10 1 1 180 6 1
 refdes=R1
 }
-N 53200 45900 53200 46300 4
-N 53200 44400 53200 45000 4
+N 52400 45500 52400 45900 4
+N 52400 44000 52400 44600 4
 T 51900 47100 9 10 1 0 0 0 1
 Transistor as a diode
-N 52400 44600 53200 44600 4
-N 53200 44600 53700 44900 4
+N 51600 44200 52400 44200 4
+N 52400 44200 52900 44500 4
 {
-T 53700 44700 5 10 1 1 0 0 1
+T 52900 44300 5 10 1 1 0 0 1
 netname=Vd
 }
-T 55100 47800 9 10 1 0 0 0 12
-On the left there is a transistor connected in order to use the BE junction only, making it work as a plain diode.
+T 55100 47800 9 10 1 0 0 0 13
+In "Box 1" is a transistor connected in order to use the BE junction only, making it work as a plain diode.
 The Vd voltage is the diode drop of the BE junction.
 Now what happens if we apply this voltage to the base of another transistor?
 Provided that the two transistors are equal, the current flowing through their bases wil be the exact same value.
 N.B. this is the reason why Q1, Q2, Q4 and Q6 are connected in this weird way: to make sure that the BE junction 
 is the same as the one in Q3, Q5, Q7.
+This is what happens in "Box 2": the current through R3 is the same as the current in R2, even if R3 is way smaller than R2.
 If for example Q2 was a diode instead, there would be no way to make sure of the voltage drop being 
 the same as that in Q3.
 Same base current means same collector current, so here we are.
@@ -308,3 +309,9 @@ T 56400 44000 9 10 1 0 0 0 1
 I1
 T 57900 44100 9 10 1 0 0 0 1
 I2
+B 50900 41900 3200 4500 3 10 1 0 -1 -1 0 -1 -1 -1 -1 -1
+T 51100 42100 9 10 1 0 0 0 1
+Box 1
+B 55000 41500 5600 5500 3 10 1 0 -1 -1 0 -1 -1 -1 -1 -1
+T 55400 41700 9 10 1 0 0 0 1
+Box 2
