@@ -1,4 +1,4 @@
-v 20130925 2
+v 20201211 2
 C 38300 65300 1 0 0 spice-directive-1.sym
 {
 T 38400 65600 5 10 0 1 0 0 1
@@ -74,8 +74,11 @@ comment=SIN (Vo Va Freq Td Df Phase)
 T 41600 61800 5 10 1 1 0 0 1
 refdes=VS10
 }
-T 41000 65200 9 10 1 0 0 0 1
+T 41000 65000 9 10 1 0 0 0 4
 Test circuit for BJT voltage comparator.
+Don't forget to generate the .cir file:
+
+lepton-netlist -g spice-sdb -o comparator.SUBCKT.cir comparator.SUBCKT.sch
 N 43800 62800 43600 63200 4
 {
 T 43400 63300 5 10 1 1 0 0 1

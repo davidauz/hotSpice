@@ -1,4 +1,4 @@
-v 20130925 2
+v 20201211 2
 C 38300 65300 1 0 0 spice-directive-1.sym
 {
 T 38400 65600 5 10 0 1 0 0 1
@@ -11,8 +11,8 @@ value=.options savecurrents
 save all
 set color0=rgb:f/f/f
 set color1=rgb:0/0/0
-dc VS10 -1 1 0.001
-plot  vo vi vref
+tran 1ms 0.3s
+plot  vo vi
 .endc
 }
 C 47600 64400 1 180 1 pnp-3.sym
@@ -82,7 +82,7 @@ N 46700 63900 46700 63300 4
 N 46700 63300 45900 63300 4
 N 45900 64400 45900 65200 4
 N 46500 63900 47600 63900 4
-N 48800 61600 50100 61600 4
+N 48800 61600 50100 61700 4
 N 42200 62200 42500 61600 4
 {
 T 42000 62300 5 10 1 1 0 0 1
@@ -124,27 +124,23 @@ netname=0
 N 41600 58200 41600 59100 4
 T 38300 59500 9 10 1 0 0 0 1
 Power supply
-C 50000 59800 1 0 0 gnd-1.sym
-{
-T 49900 59800 5 10 1 1 0 0 1
-netname=0
-}
 C 41400 60000 1 270 0 voltage-3.sym
 {
 T 42100 59800 5 8 0 0 270 0 1
 device=VOLTAGE_SOURCE
 T 41400 60000 5 10 0 0 0 0 1
-value=0 SIN (0 0.5 2  0 0 0) 
+value=0 SIN (0 1.5 50  0 0 0) 
 T 41400 60000 5 10 0 0 0 0 1
 comment=SIN (Vo Va Freq Td Df Phase)
 T 41900 59500 5 10 1 1 0 0 1
 refdes=VS10
 }
-T 41000 65200 9 10 1 0 0 0 4
+T 41000 65200 9 10 1 0 0 0 5
 this is supposed to be a BJT voltage comparator.
-The simulation is done with a voltage sweep from -1
-to 1; when vi touches the reference voltage VRef,
+The reference voltage of 1V is compared againbst a sine wave;
+when vi touches the reference voltage VRef,
 the output voltage Vo jumps up.
+This folder includes a SUBCKT with its test too.
 C 45600 57600 1 0 1 npn-3.sym
 {
 T 44700 58100 5 10 0 0 0 6 1
@@ -185,7 +181,6 @@ T 46400 58300 5 10 0 0 0 0 1
 model=npn
 }
 N 47000 59300 47000 60400 4
-N 50100 60100 50100 61600 4
 C 44900 57100 1 0 0 gnd-1.sym
 {
 T 44800 57100 5 10 1 1 0 0 1
@@ -196,3 +191,18 @@ C 46900 57800 1 0 0 gnd-1.sym
 T 46800 57800 5 10 1 1 0 0 1
 netname=0
 }
+C 49900 61700 1 270 0 voltage-3.sym
+{
+T 50600 61500 5 8 0 1 270 0 1
+device=VOLTAGE_SOURCE
+T 50400 61300 5 10 1 1 0 0 1
+refdes=Vref
+T 50400 61100 5 10 1 1 0 0 1
+value=DC 1
+}
+C 50000 60400 1 0 0 gnd-1.sym
+{
+T 49900 60400 5 10 1 1 0 0 1
+netname=0
+}
+N 50100 60800 50100 60700 4

@@ -1,4 +1,4 @@
-v 20130925 2
+v 20201211 2
 C 47600 64400 1 180 1 pnp-3.sym
 {
 T 48500 63900 5 10 0 0 180 6 1
@@ -178,6 +178,7 @@ T 45300 56300 9 10 1 0 0 0 1
 Vee
 T 50400 62600 9 10 1 0 0 0 1
 output
-T 37500 59200 9 10 1 0 0 0 2
-To make this work you need the cir file:
-gnetlist -g spice-sdb -o comparator.SUBCKT.cir comparator.SUBCKT.sch
+T 41000 66700 9 10 1 0 0 0 3
+To make this work in the test circuit you need the cir file:
+
+lepton-netlist -g spice-sdb -o comparator.SUBCKT.cir comparator.SUBCKT.sch
